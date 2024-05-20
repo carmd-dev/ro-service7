@@ -1,0 +1,16 @@
+\BATTERY_RESET\EngineList.bin	V01.00.06
+\BATTERY_RESET\GMAfterConnectionFrenchList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMAfterConnectionList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMAfterConnectionSpanishList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMBeforeConnectionFrenchList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMBeforeConnectionList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMBeforeConnectionSpanishList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMBeforeDisconnectionFrenchList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMBeforeDisconnectionList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMBeforeDisconnectionSpanishList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMGeneralInfoFrenchList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMGeneralInfoList_ENC.bin	V01.00.06
+\BATTERY_RESET\GMGeneralInfoSpanishList_ENC.bin	V01.00.06
+\BATTERY_RESET\MakeList.bin	V01.00.06
+\BATTERY_RESET\ModelList.bin	V01.00.06
+\BATTERY_RESET\YearList.bin	V01.00.06

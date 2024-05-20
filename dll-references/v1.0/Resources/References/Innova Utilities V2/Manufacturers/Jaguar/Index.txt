@@ -1,0 +1,44 @@
+V01.00.04
+/DLCLocator/DLCLocator.bin	V01.00.01
+/DLCLocator/ListAccessEng_ENC.bin	V01.00.01
+/DLCLocator/ListAccessFre_ENC.bin	V01.00.01
+/DLCLocator/ListAccessSpa_ENC.bin	V01.00.01
+/DLCLocator/ListCommentsEng_ENC.bin	V01.00.01
+/DLCLocator/ListCommentsFre_ENC.bin	V01.00.01
+/DLCLocator/ListCommentsSpa_ENC.bin	V01.00.01
+/DLCLocator/YearList.bin	V01.00.01
+/DLCLocator/YMME.bin	V01.00.01
+/DLCLocator/ModelList.bin	V01.00.01
+
+/DTCDefinition/JaguarDefinitionEng_ENC.bin	V01.00.01
+/DTCDefinition/JaguarDefinitionFre_ENC.bin	V01.00.01
+/DTCDefinition/JaguarDefinitionSpa_ENC.bin	V01.00.01
+/DTCDefinition/JaguarHeaderEng.bin	V01.00.01
+/DTCDefinition/JaguarHeaderFre.bin	V01.00.01
+/DTCDefinition/JaguarHeaderSpa.bin	V01.00.01
+
+/OilReset/JaguarOilResetHeaderEng.bin	V01.00.02
+/OilReset/JaguarOilResetProcedureTextEng_ENC.bin	V01.00.02
+/OilReset/JaguarOilResetHeaderSpa.bin	V01.00.02
+/OilReset/JaguarOilResetProcedureTextSpa_ENC.bin	V01.00.02
+/OilReset/JaguarOilResetYMMEProfile.bin	V01.00.02
+
+/VinDecode/2002.bin	V01.00.03
+/VinDecode/2003.bin	V01.00.03
+/VinDecode/2004.bin	V01.00.03
+/VinDecode/2005.bin	V01.00.03
+/VinDecode/2006.bin	V01.00.03
+/VinDecode/2007.bin	V01.00.03
+/VinDecode/2008.bin	V01.00.03
+/VinDecode/2009.bin	V01.00.03
+/VinDecode/2010.bin	V01.00.03
+/VinDecode/2011.bin	V01.00.03
+/VinDecode/2012.bin	V01.00.03
+/VinDecode/2013.bin	V01.00.03
+/VinDecode/DecodeMake.bin	V01.00.03
+/VinDecode/DecodeYear.bin	V01.00.03
+/VinDecode/EngineList.bin	V01.00.03
+/VinDecode/ModelList.bin	V01.00.03
+/VinDecode/TransList.bin	V01.00.03
+/VinDecode/YearList.bin	V01.00.03
+/VinDecode/YMME.bin	V01.00.03

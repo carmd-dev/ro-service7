@@ -1,0 +1,10 @@
+Fiat_Procedure_Type18	1
+Fiat_Procedure_Type28	2
+Fiat_Procedure_Type101	3
+Fiat_Procedure_Type102	4
+Fiat_Procedure_Type103	5
+Fiat_Procedure_Type18	1
+Fiat_Procedure_Type28	2
+Fiat_Procedure_Type101	3
+Fiat_Procedure_Type102	4
+Fiat_Procedure_Type103	5

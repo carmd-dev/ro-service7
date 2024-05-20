@@ -1,0 +1,56 @@
+V01.00.06
+/DLCLocator/DLCLocator.bin	V01.00.01
+/DLCLocator/ListAccessEng_ENC.bin	V01.00.01
+/DLCLocator/ListAccessFre_ENC.bin	V01.00.01
+/DLCLocator/ListAccessSpa_ENC.bin	V01.00.01
+/DLCLocator/ListCommentsEng_ENC.bin	V01.00.01
+/DLCLocator/ListCommentsFre_ENC.bin	V01.00.01
+/DLCLocator/ListCommentsSpa_ENC.bin	V01.00.01
+/DLCLocator/YearList.bin	V01.00.01
+/DLCLocator/YMME.bin	V01.00.01
+
+/DTCDefinition/MazdaDefinitionEng_ENC.bin	V01.00.01
+/DTCDefinition/MazdaDefinitionFre_ENC.bin	V01.00.01
+/DTCDefinition/MazdaDefinitionSpa_ENC.bin	V01.00.01
+/DTCDefinition/MazdaHeaderEng.bin	V01.00.01
+/DTCDefinition/MazdaHeaderFre.bin	V01.00.01
+/DTCDefinition/MazdaHeaderSpa.bin	V01.00.01
+
+/OilReset/MazdaOilResetHeaderEng.bin	V01.00.04
+/OilReset/MazdaOilResetHeaderSpa.bin	V01.00.04
+/OilReset/MazdaOilResetHeaderFre.bin	V01.00.04	
+/OilReset/MazdaOilResetProcedureTextEng_ENC.bin	V01.00.04
+/OilReset/MazdaOilResetProcedureTextSpa_ENC.bin	V01.00.04
+/OilReset/MazdaOilResetProcedureTextFre_ENC.bin	V01.00.04
+/OilReset/MazdaOilResetYMMEProfile.bin	V01.00.04
+
+/VinDecode/2002.bin	V01.00.03
+/VinDecode/2003.bin	V01.00.03
+/VinDecode/2004.bin	V01.00.03
+/VinDecode/2005.bin	V01.00.03
+/VinDecode/2006.bin	V01.00.03
+/VinDecode/2007.bin	V01.00.03
+/VinDecode/2008.bin	V01.00.03
+/VinDecode/2009.bin	V01.00.03
+/VinDecode/2010.bin	V01.00.03
+/VinDecode/2011.bin	V01.00.03
+/VinDecode/2012.bin	V01.00.03
+/VinDecode/2013.bin	V01.00.03
+/VinDecode/2014.bin	V01.00.03
+/VinDecode/DecodeMake.bin	V01.00.03
+/VinDecode/DecodeYear.bin	V01.00.03
+/VinDecode/EngineList.bin	V01.00.03
+/VinDecode/ModelList.bin	V01.00.03
+/VinDecode/TransList.bin	V01.00.03
+/VinDecode/YearList.bin	V01.00.03
+/VinDecode/YMME.bin	V01.00.03
+
+/BatteryReset/MazdaAfterConnectionEng_ENC.bin	V01.00.01
+/BatteryReset/MazdaBatteryResetYMME.bin	V01.00.01
+/BatteryReset/MazdaBeforeConnectionEng_ENC.bin	V01.00.01
+/BatteryReset/MazdaBeforeDisconnectionEng_ENC.bin	V01.00.01
+/BatteryReset/MazdaGeneralInfoEng_ENC.bin	V01.00.01
+/BatteryReset/MazdaHeaderAfterConnectionEng.bin	V01.00.01
+/BatteryReset/MazdaHeaderBeforeConnectionEng.bin	V01.00.01
+/BatteryReset/MazdaHeaderBeforeDisconnectionEng.bin	V01.00.01
+/BatteryReset/MazdaHeaderGeneralInfoEng.bin	V01.00.01

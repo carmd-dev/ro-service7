@@ -1,0 +1,7 @@
+\OILRESET\GMOilResetEnglishAddress.bin	V01.00.10
+\OILRESET\GMOilResetEnglishText_ENC.bin	V01.00.10
+\OILRESET\GMOilResetFrenchAddress.bin	V01.00.10
+\OILRESET\GMOilResetFrenchText_ENC.bin	V01.00.10
+\OILRESET\GMOilResetSpanishAddress.bin	V01.00.10
+\OILRESET\GMOilResetSpanishText_ENC.bin	V01.00.10
+\OILRESET\GMOilResetYMMEProfile.bin	V01.00.10

@@ -1,0 +1,9 @@
+V01.00.04
+/Mode6/MODE6_HEADER.bin	V01.00.01
+/Mode6/MODE6_DATA.bin	V01.00.01
+/DTC/ObdII_Header.bin	V01.00.02
+/DTC/ObdII_En.bin	V01.00.02
+/DTC/ObdII_Sp.bin	V01.00.02
+/DTC/ObdII_Fr.bin	V01.00.02
+/OBDII_LD/LD_HDR.bin	V01.00.03
+/OBDII_LD/LD_Database.bin	V01.00.03

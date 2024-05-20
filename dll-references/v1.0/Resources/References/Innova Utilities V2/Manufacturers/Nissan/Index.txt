@@ -1,0 +1,29 @@
+V01.00.19
+
+/DLC_Locator/Nissan_DLCLocatorProfile.bin	V01.00.07
+/DLC_Locator/Nissan_DLCLocatorString_ENC.bin	V01.00.07
+
+/OilReset/NissanOilResetHeader.bin	V01.00.14
+/OilReset/NissanOilResetStringENENC.bin	V01.00.14
+/OilReset/NissanOilResetStringSPENC.bin	V01.00.14
+/OilReset/NissanOilResetStringFRENC.bin	V01.00.14
+
+/UI/NissanYMMEProfile.bin	V01.00.08
+/UI/NissanYMMEString.bin	V01.00.08
+
+/VinDecode/NissanVINDecode.bin	V01.00.09
+
+/Definition/NissanCanSub.bin	V01.00.05
+/Definition/NissanDTCHeader.bin	V01.00.05
+/Definition/NissanDTCStringENENC.bin	V01.00.05
+/Definition/NissanDTCStringSPENC.bin	V01.00.05
+/Definition/NissanDTCStringFRENC.bin	V01.00.05
+
+/LightStatus/Profile.bin	V01.00.06
+
+/BatteryReset/NissanBatteryResetHeaderEN.bin	V01.00.07
+/BatteryReset/NissanBatteryResetHeaderFR.bin	V01.00.07
+/BatteryReset/NissanBatteryResetHeaderSP.bin	V01.00.07
+/BatteryReset/NissanBatteryResetStringENENC.bin	V01.00.07
+/BatteryReset/NissanBatteryResetStringFRENC.bin	V01.00.07
+/BatteryReset/NissanBatteryResetStringSPENC.bin	V01.00.07

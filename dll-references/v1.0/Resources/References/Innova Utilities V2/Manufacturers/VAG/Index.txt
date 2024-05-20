@@ -1,0 +1,66 @@
+V01.00.15
+\BatteryReset\Text1.bin	V01.00.03
+\BatteryReset\Text2.bin	V01.00.02
+\BatteryReset\Text3.bin	V01.00.03
+\BatteryReset\YMME.bin	V01.00.03
+
+\DLC\Model_List.bin	V01.00.01
+\DLC\Text_ENC.bin	V01.00.01
+\DLC\Text_Map.bin	V01.00.01
+
+\DLC\Audi\DLC.bin	V01.00.01
+\DLC\Audi\DLC_Map.bin	V01.00.01
+
+\DLC\Volks\DLC.bin	V01.00.01
+\DLC\Volks\DLC_Map.bin	V01.00.01
+
+\DtcDef\1.bin	V01.00.02
+\DtcDef\1_Sub.bin	V01.00.01
+\DtcDef\2.bin	V01.00.02
+\DtcDef\2_Sub.bin	V01.00.01
+\DtcDef\3.bin	V01.00.02
+\DtcDef\3_Sub.bin	V01.00.01
+
+\DtcDef\Routan\1_ABS.bin	V01.00.01
+\DtcDef\Routan\1_ORC.bin	V01.00.01
+\DtcDef\Routan\1_PCM.bin	V01.00.01
+\DtcDef\Routan\1_TCM.bin	V01.00.01
+\DtcDef\Routan\2_ABS.bin	V01.00.01
+\DtcDef\Routan\2_ORC.bin	V01.00.01
+\DtcDef\Routan\2_PCM.bin	V01.00.01
+\DtcDef\Routan\2_TCM.bin	V01.00.01
+\DtcDef\Routan\3_ABS.bin	V01.00.01
+\DtcDef\Routan\3_ORC.bin	V01.00.01
+\DtcDef\Routan\3_PCM.bin	V01.00.01
+\DtcDef\Routan\3_TCM.bin	V01.00.01
+
+\EcuID\VAG_EcuIDProfile.bin	V01.00.02
+\EcuID\VAG_TableLookup.bin	V01.00.02
+
+\LightStatus\strt_Volkswagen_Profile.bin	V01.00.01
+
+\OilReset\Text1.bin	V01.00.03
+\OilReset\Text2.bin	V01.00.02
+\OilReset\Text3.bin	V01.00.03
+\OilReset\YMME.bin	V01.00.05
+
+\TripCycle\IdMap.bin	V01.00.01
+\TripCycle\Profile.bin	V01.00.01
+\TripCycle\Text.bin	V01.00.01
+\TripCycle\TextMap.bin	V01.00.01
+
+\VIN\VAGYMMEProfile.bin	V01.00.04
+\VIN\VAGYMMEString.bin	V01.00.04
+\VIN\VIN_2002.bin	V01.00.01
+\VIN\VIN_2003.bin	V01.00.02
+\VIN\VIN_2004.bin	V01.00.02
+\VIN\VIN_2005.bin	V01.00.02
+\VIN\VIN_2006.bin	V01.00.02
+\VIN\VIN_2007.bin	V01.00.02
+\VIN\VIN_2008.bin	V01.00.02
+\VIN\VIN_2009.bin	V01.00.02
+\VIN\VIN_2010.bin	V01.00.02
+\VIN\VIN_2011.bin	V01.00.02
+\VIN\VIN_2012.bin	V01.00.02
+\VIN\VIN_2013.bin	V01.00.02
+\VIN\VIN_2014.bin	V01.00.01

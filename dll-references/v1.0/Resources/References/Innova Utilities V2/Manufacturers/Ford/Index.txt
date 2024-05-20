@@ -1,0 +1,84 @@
+V01.00.18
+/DLCLocator/DLCLocator.bin	V01.00.02
+/DLCLocator/ListAccessEng_ENC.bin	V01.00.02
+/DLCLocator/ListAccessFre_ENC.bin	V01.00.02
+/DLCLocator/ListAccessSpa_ENC.bin	V01.00.02
+/DLCLocator/ListCommentsEng_ENC.bin	V01.00.02
+/DLCLocator/ListCommentsFre_ENC.bin	V01.00.02
+/DLCLocator/ListCommentsSpa_ENC.bin	V01.00.02
+/DLCLocator/YearList.bin	V01.00.02
+/DLCLocator/YMME.bin	V01.00.02
+
+/DTCDefinition/FordDefinitionEng_ENC.bin	V01.00.05
+/DTCDefinition/FordDefinitionFre_ENC.bin	V01.00.05
+/DTCDefinition/FordDefinitionSpa_ENC.bin	V01.00.05
+/DTCDefinition/FordHeaderEng.bin	V01.00.05
+/DTCDefinition/FordHeaderFre.bin	V01.00.05
+/DTCDefinition/FordHeaderSpa.bin	V01.00.05
+/DTCDefinition/GenericDefinitionEng_ENC.bin	V01.00.05
+/DTCDefinition/GenericDefinitionFre_ENC.bin	V01.00.05
+/DTCDefinition/GenericDefinitionSpa_ENC.bin	V01.00.05
+/DTCDefinition/GenericHeaderEng.bin	V01.00.05
+/DTCDefinition/GenericHeaderFre.bin	V01.00.05
+/DTCDefinition/GenericHeaderSpa.bin	V01.00.05
+
+/LightStatus/strt_Ford_Profile.bin	V01.00.02
+
+/OilReset/FordOilResetHeaderEng.bin	V01.00.07
+/OilReset/FordOilResetHeaderSpa.bin	V01.00.07
+/OilReset/FordOilResetHeaderFre.bin	V01.00.07
+/OilReset/FordOilResetProcedureTextEng_ENC.bin	V01.00.07
+/OilReset/FordOilResetProcedureTextSpa_ENC.bin	V01.00.07
+/OilReset/FordOilResetProcedureTextFre_ENC.bin	V01.00.07
+/OilReset/FordOilResetYMMEProfile.bin	V01.00.07
+
+/VinDecode/2002.bin	V01.00.06
+/VinDecode/2003.bin	V01.00.06
+/VinDecode/2004.bin	V01.00.06
+/VinDecode/2005.bin	V01.00.06
+/VinDecode/2006.bin	V01.00.06
+/VinDecode/2007.bin	V01.00.06
+/VinDecode/2008.bin	V01.00.06
+/VinDecode/2009.bin	V01.00.06
+/VinDecode/2010.bin	V01.00.06
+/VinDecode/2011.bin	V01.00.06
+/VinDecode/2012.bin	V01.00.06
+/VinDecode/2013.bin	V01.00.06
+/VinDecode/2014.bin	V01.00.06
+/VinDecode/DecodeMake.bin	V01.00.06
+/VinDecode/DecodeYear.bin	V01.00.06
+/VinDecode/EngineList.bin	V01.00.06
+/VinDecode/ModelList.bin	V01.00.06
+/VinDecode/TransList.bin	V01.00.06
+/VinDecode/YearList.bin	V01.00.06
+/VinDecode/YMME.bin	V01.00.06
+
+/BatteryReset/FordAfterConnectionEng_ENC.bin	V01.00.05
+/BatteryReset/FordAfterConnectionFre_ENC.bin	V01.00.05
+/BatteryReset/FordAfterConnectionSpa_ENC.bin	V01.00.05
+/BatteryReset/FordBatteryResetYMME.bin	V01.00.05
+/BatteryReset/FordBeforeConnectionEng_ENC.bin	V01.00.05
+/BatteryReset/FordBeforeConnectionFre_ENC.bin	V01.00.05
+/BatteryReset/FordBeforeConnectionSpa_ENC.bin	V01.00.05
+/BatteryReset/FordBeforeDisconnectionEng_ENC.bin	V01.00.05
+/BatteryReset/FordBeforeDisconnectionFre_ENC.bin	V01.00.05
+/BatteryReset/FordBeforeDisconnectionSpa_ENC.bin	V01.00.05
+/BatteryReset/FordGeneralInfoEng_ENC.bin	V01.00.05
+/BatteryReset/FordGeneralInfoFre_ENC.bin	V01.00.05
+/BatteryReset/FordGeneralInfoSpa_ENC.bin	V01.00.05
+/BatteryReset/FordHeaderAfterConnectionEng.bin	V01.00.05
+/BatteryReset/FordHeaderAfterConnectionFre.bin	V01.00.05
+/BatteryReset/FordHeaderAfterConnectionSpa.bin	V01.00.05
+/BatteryReset/FordHeaderBeforeConnectionEng.bin	V01.00.05
+/BatteryReset/FordHeaderBeforeConnectionFre.bin	V01.00.05
+/BatteryReset/FordHeaderBeforeConnectionSpa.bin	V01.00.05
+/BatteryReset/FordHeaderBeforeDisconnectionEng.bin	V01.00.05
+/BatteryReset/FordHeaderBeforeDisconnectionFre.bin	V01.00.05
+/BatteryReset/FordHeaderBeforeDisconnectionSpa.bin	V01.00.05
+/BatteryReset/FordHeaderGeneralInfoEng.bin	V01.00.05
+/BatteryReset/FordHeaderGeneralInfoFre.bin	V01.00.05
+/BatteryReset/FordHeaderGeneralInfoSpa.bin	V01.00.05
+
+/TripCycle/FordTripCycleYMME.bin	V01.00.01
+/TripCycle/FordTripCycleMonitorName.bin	V01.00.01
+/TripCycle/FordTripCycleDescriptionEng_ENC.bin	V01.00.01

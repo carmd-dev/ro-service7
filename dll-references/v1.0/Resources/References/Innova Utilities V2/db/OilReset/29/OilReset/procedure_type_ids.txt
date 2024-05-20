@@ -1,0 +1,10 @@
+PSA_Procedure_Type 001	1
+PSA_Procedure_Type 002	2
+PSA_Procedure_Type 003	3
+PSA_Procedure_Type 004	4
+PSA_Procedure_Type 005	5
+PSA_Procedure_Type 001	1
+PSA_Procedure_Type 002	2
+PSA_Procedure_Type 003	3
+PSA_Procedure_Type 004	4
+PSA_Procedure_Type 005	5

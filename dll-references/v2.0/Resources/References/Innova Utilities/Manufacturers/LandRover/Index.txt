@@ -1,0 +1,43 @@
+V01.00.04
+/DLCLocator/DLCLocator.bin	V01.00.01
+/DLCLocator/ListAccessEng_ENC.bin	V01.00.01
+/DLCLocator/ListAccessFre_ENC.bin	V01.00.01
+/DLCLocator/ListAccessSpa_ENC.bin	V01.00.01
+/DLCLocator/ListCommentsEng_ENC.bin	V01.00.01
+/DLCLocator/ListCommentsFre_ENC.bin	V01.00.01
+/DLCLocator/ListCommentsSpa_ENC.bin	V01.00.01
+/DLCLocator/YearList.bin	V01.00.01
+/DLCLocator/YMME.bin	V01.00.01
+
+/DTCDefinition/LandRoverDefinitionEng_ENC.bin	V01.00.01
+/DTCDefinition/LandRoverDefinitionFre_ENC.bin	V01.00.01
+/DTCDefinition/LandRoverDefinitionSpa_ENC.bin	V01.00.01
+/DTCDefinition/LandRoverHeaderEng.bin	V01.00.01
+/DTCDefinition/LandRoverHeaderFre.bin	V01.00.01
+/DTCDefinition/LandRoverHeaderSpa.bin	V01.00.01
+
+/OilReset/LandRoverOilResetHeaderEng.bin	V01.00.02
+/OilReset/LandRoverOilResetProcedureTextEng_ENC.bin	V01.00.02
+/OilReset/LandRoverOilResetHeaderSpa.bin	V01.00.02
+/OilReset/LandRoverOilResetProcedureTextSpa_ENC.bin	V01.00.02
+/OilReset/LandRoverOilResetYMMEProfile.bin	V01.00.02
+
+/VinDecode/2002.bin	V01.00.03
+/VinDecode/2003.bin	V01.00.03
+/VinDecode/2004.bin	V01.00.03
+/VinDecode/2005.bin	V01.00.03
+/VinDecode/2006.bin	V01.00.03
+/VinDecode/2007.bin	V01.00.03
+/VinDecode/2008.bin	V01.00.03
+/VinDecode/2009.bin	V01.00.03
+/VinDecode/2010.bin	V01.00.03
+/VinDecode/2011.bin	V01.00.03
+/VinDecode/2012.bin	V01.00.03
+/VinDecode/2013.bin	V01.00.03
+/VinDecode/DecodeMake.bin	V01.00.03
+/VinDecode/DecodeYear.bin	V01.00.03
+/VinDecode/EngineList.bin	V01.00.03
+/VinDecode/ModelList.bin	V01.00.03
+/VinDecode/TransList.bin	V01.00.03
+/VinDecode/YearList.bin	V01.00.03
+/VinDecode/YMME.bin	V01.00.03

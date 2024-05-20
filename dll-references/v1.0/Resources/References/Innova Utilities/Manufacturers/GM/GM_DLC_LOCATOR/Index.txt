@@ -1,0 +1,5 @@
+\GM_DLC_LOCATOR\MakeList.bin	V01.00.12
+\GM_DLC_LOCATOR\ModelList.bin	V01.00.12
+\GM_DLC_LOCATOR\ProfileLocatorList.bin	V01.00.12
+\GM_DLC_LOCATOR\TextProfileLocatorList_ENC.bin	V01.00.12
+\GM_DLC_LOCATOR\YearList.bin	V01.00.12
