@@ -253,7 +253,7 @@ namespace Innova.WebServiceV07.RO
         /// Helper methods to keep all reports send from OR BB
         /// </summary>
         /// <param name="requestModel"></param>
-        protected void SaveToLocalFolder(object requestModel)
+        protected void SaveToLocalFolder(object requestModel, string newPayloadFolder)
         {
             try
             {
@@ -269,7 +269,7 @@ namespace Innova.WebServiceV07.RO
 
                         string reportFilename = $"{externalSystemName.Replace("'", "").Replace(" ", "")}_Payload_" + DateTime.Now.ToString("yyyyMMdd HHmmss.fffffff") + "_" + Guid.NewGuid() + ".txt";
 
-                        PayloadHelper.SavePayloadToFileByDay(externalSystemName, Global.OreillyReportFromBBFolderPath, reportFilename, payloadInfo);
+                        PayloadHelper.SavePayloadToFileByDay(externalSystemName, newPayloadFolder, reportFilename, payloadInfo);
                     }
                 }
             }

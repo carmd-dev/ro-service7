@@ -332,6 +332,14 @@ namespace Innova.WebServiceV07.RO
             }
         }
 
+        public static string RabbitMQ_QueueName_AutoZoneDiagnosticReportLogging
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["RabbitMQ_QueueName_AutoZoneDiagnosticReportLogging"];
+            }
+        }
+
         public static string OreillyReportFromBBFolderPath
         {
             get
@@ -340,11 +348,27 @@ namespace Innova.WebServiceV07.RO
             }
         }
 
+        public static string AutoZoneReportFromBBFolderPath
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["AutoZoneReportFromBBFolderPath"];
+            }
+        }
+
         public static string RabbitMQ_QueueName_OreillyBlackBoxLog
         {
             get
             {
                 return ConfigurationManager.AppSettings["RabbitMQ_QueueName_OreillyBlackBoxLog"];
+            }
+        }
+
+        public static string RabbitMQ_QueueName_AutoZoneBlackBoxLog
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["RabbitMQ_QueueName_AutoZoneBlackBoxLog"];
             }
         }
 

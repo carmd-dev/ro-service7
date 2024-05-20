@@ -293,6 +293,10 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AutoZoneBlackboxLogging.asmx.cs">
+      <DependentUpon>AutoZoneBlackboxLogging.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Common\Enums\MethodDiagnosticReportLoggingServiceEnum.cs" />
     <Compile Include="Common\Enums\MethodServiceV06Enum.cs" />
     <Compile Include="Common\Enums\MethodServiceV07Enum.cs" />
@@ -330,6 +334,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="WebMethods\DiagnosticReportLoggingV2WebMethods\AutoZone\AutoZoneDiagnosticReportLoggingV2Processor.cs" />
     <Compile Include="WebMethods\DiagnosticReportLoggingV2WebMethods\Oreilly\OreillyDiagnosticReportLoggingV2Partial.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -408,6 +413,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Helpers\XmlHelper.cs" />
+    <Content Include="AutoZoneBlackboxLogging.asmx" />
     <Content Include="DiagnosticReportLoggingV2.asmx" />
     <Content Include="ServiceV7.asmx" />
     <Content Include="Global.asax">
