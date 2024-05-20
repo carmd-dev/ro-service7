@@ -1,10 +1,11 @@
-﻿using Innova.ORBlackBoxLogs;
-using Innova.WebServiceV07.RO.Common.Enums;
+﻿using Innova.WebServiceV07.RO.Common.Enums;
+using Innova.WebServiceV07.RO.DataModels.AutoZoneBlackboxLoggingModels;
 using Innova.WebServiceV07.RO.DataModels.RabbitMQModels;
 using Innova.WebServiceV07.RO.DataModels.ServiceV6Models.LogDiagnosticReport;
 using Innova.WebServiceV07.RO.DataModels.ServiceV7Models.WebServiceKey;
 using Innova.WebServiceV07.RO.DataObjects;
 using Innova.WebServiceV07.RO.Helpers;
+using Innova.WebServiceV07.RO.Services;
 using Innova.WebServiceV07.RO.WebMethods.DiagnosticReportLoggingV2WebMethods.AutoZone;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 using System;
@@ -15,13 +16,11 @@ using System.Web.Services;
 namespace Innova.WebServiceV07.RO
 {
     /// <summary>
-    /// Summary description for AutoZoneBlackboxLogging
+    /// Innova - AutoZone Logging Service. Contains the web methods used to log Innova diagnostic reports.
     /// </summary>
     [WebService(Namespace = "http://webservice.innova.com/Logging/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
     public class AutoZoneBlackboxLogging : WebServiceBase
     {
         [WebMethod(Description = "Creates a diagnostic report using the provided VIN and payload V2.")]
@@ -44,7 +43,7 @@ namespace Innova.WebServiceV07.RO
             {
                 if (!this.ValidateKey(key))
                 {
-                    Logger.Write($"RO AutoZoneDiagnosticReportLoggingV2 => AutoZoneCreateDiagnosticReportWithMileage => Invalid key => key: {key.Key}");
+                    Logger.Write($"AutoZoneBlackboxLogging => CreateDiagnosticReportWithMileage => Invalid key => key: {key.Key}");
                     errors.AddValidationFailure("00001", "Invalid key");
 
                     return drInfo;
@@ -52,13 +51,13 @@ namespace Innova.WebServiceV07.RO
 
                 if (!IsUserIdValid(externalSystemUserIdString))
                 {
-                    Logger.Write($"RO AutoZoneDiagnosticReportLoggingV2 => AutoZoneCreateDiagnosticReportWithMileage => ExternalSystemUserIdString format is not valid => externalSystemUserIdString: {externalSystemUserIdString}");
+                    Logger.Write($"AutoZoneBlackboxLogging => CreateDiagnosticReportWithMileage => ExternalSystemUserIdString format is not valid => externalSystemUserIdString: {externalSystemUserIdString}");
                     errors.AddValidationFailure("40004", "ExternalSystemUserIdString format is not valid");
 
                     return drInfo;
                 }
 
-                Logger.Write($"RO AutoZoneDiagnosticReportLoggingV2 => AutoZoneCreateDiagnosticReportWithMileage => logId: {logId} => reportId: {reportID}, vin: {vin}");
+                Logger.Write($"AutoZoneBlackboxLogging => CreateDiagnosticReportWithMileage => logId: {logId} => reportId: {reportID}, vin: {vin}");
 
                 if (Global.ForwardDataToIDMService)
                 {
@@ -115,10 +114,7 @@ namespace Innova.WebServiceV07.RO
                     },
                 };
 
-                Task.Run(() =>
-                {
-                    SendRequestToRabbitMQ(rabbitMQRequestModel, logId, Global.RabbitMQ_QueueName_AutoZoneDiagnosticReportLogging);
-                });
+                AutoZoneDiagnosticReportService.PushDiagnosticReportToQueue(rabbitMQRequestModel);
 
                 #endregion Service ReadOnly - Send request to RabbitMQ
 
@@ -133,46 +129,29 @@ namespace Innova.WebServiceV07.RO
             }
             catch (Exception ex)
             {
-                Logger.Write($"RO AutoZoneDiagnosticReportLoggingV2 => AutoZoneCreateDiagnosticReportWithMileage => logId: {logId} => Exception: {ex}");
+                Logger.Write($"AutoZoneBlackboxLogging => CreateDiagnosticReportWithMileage => logId: {logId} => Exception: {ex}");
                 errors.AddValidationFailure("90000", $"Exception: {ex}");
             }
 
             return drInfo;
         }
 
-        [WebMethod(Description = "ORBlackBoxLog - Write log to database")]
-        public void WriteORBlackBoxLogTransaction(ORBlackBoxWebServiceTransaction dataLog)
+        [WebMethod(Description = "AutoZoneBlackboxLogging - Push transaction log to INNOVA")]
+        public void PushTransactionLogToInnova(AutoZoneBlackboxLogWebServiceTransactionModel model)
         {
-            #region Service ReadOnly - Send request to RabbitMQ
-
-            var logId = Guid.NewGuid().ToString();
-
             try
             {
-                if (string.IsNullOrEmpty(dataLog.IPAddress))
+                if (string.IsNullOrEmpty(model.ipAddress))
                 {
-                    dataLog.IPAddress = HttpContext.Current.Request.UserHostAddress;
+                    model.ipAddress = HttpContext.Current.Request.UserHostAddress;
                 }
 
-                var rabbitMQRequestModel = new RabbitMQRequestModel<ORBlackBoxWebServiceTransaction>
-                {
-                    ServiceName = ServiceTypeEnum.DiagnosticReportLoggingServiceV7.ToString(),
-                    MethodName = MethodDiagnosticReportLoggingServiceEnum.WriteORBlackBoxLogTransaction.ToString(),
-                    Data = dataLog
-                };
-
-                Task.Run(() =>
-                {
-                    SendRequestToRabbitMQ(rabbitMQRequestModel, logId, Global.RabbitMQ_QueueName_AutoZoneBlackBoxLog);
-                });
+                AutoZoneBlackboxLoggingService.PushTransactionLogToQueue(model);
             }
             catch (Exception ex)
             {
-                Logger.Write($"RO OreillyDiagnosticReportLoggingV2 => WriteORBlackBoxLogTransaction => logId: {logId} => Exception: {ex}");
+                Logger.Write($"AutoZoneBlackboxLogging => PushLogTransactionToInnova => Exception: {ex}");
             }
-
-            #endregion Service ReadOnly - Send request to RabbitMQ
         }
-
     }
 }

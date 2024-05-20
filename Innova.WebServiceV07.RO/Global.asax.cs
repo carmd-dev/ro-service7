@@ -364,14 +364,6 @@ namespace Innova.WebServiceV07.RO
             }
         }
 
-        public static string RabbitMQ_QueueName_AutoZoneBlackBoxLog
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["RabbitMQ_QueueName_AutoZoneBlackBoxLog"];
-            }
-        }
-
         public static string RabbitMQ_QueueName_ServiceRO
         {
             get
@@ -379,6 +371,15 @@ namespace Innova.WebServiceV07.RO
                 return ConfigurationManager.AppSettings["RabbitMQ_QueueName_Default"];
             }
         }
+
+        public static string RabbitMQ_QueueName_AutoZoneBlackboxTransactionLog
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["RabbitMQ_QueueName_AutoZoneBlackboxTransactionLog"];
+            }
+        }
+
 
         /// <summary>
         /// The default contructor for the <see cref="Global"/> class.
