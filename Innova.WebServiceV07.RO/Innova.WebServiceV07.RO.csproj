@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}</ProjectGuid>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Innova.WebServiceV07.RO</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Innova.WebServiceV07.RO</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DocumentationFile>bin\Innova.WebServiceV07.RO.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug CanOBD2.WebApp|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>bin\Innova.WebServiceV07.RO.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Innova Admin Web App|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug OBDFix Web App|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DocumentationFile>bin\Innova.WebServiceV07.RO.xml</DocumentationFile>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AUTOZONE Release|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;AUTOZONE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DocumentationFile>bin\Innova.WebServiceV07.RO.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Innova.WebService.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AUTOZONE Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;AUTOZONE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DocumentationFile>bin\Innova.WebServiceV07.RO.xml</DocumentationFile>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Innova.WebService.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova.Utilities.Shared">
+      <HintPath>..\Resources\References\Innova Utilities\Innova.Utilities.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Common">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Configuration">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Converters">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Converters.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.DeviceAccess">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.DeviceAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Entities">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Enums">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Enums.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Exceptions">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Interfaces">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Managers">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Managers.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Parsing">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Parsing.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Shared">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Structures">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Structures.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.USBHIDLibrary">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.USBHIDLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Metafuse3, Version=12.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\References\Metafuse3.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\References\Innova Utilities\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=6.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.6.8.1\lib\net462\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.3\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.8.0.0\lib\net462\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Enums\MethodDiagnosticReportLoggingServiceEnum.cs" />
+    <Compile Include="Common\Enums\MethodServiceV06Enum.cs" />
+    <Compile Include="Common\Enums\MethodServiceV07Enum.cs" />
+    <Compile Include="Common\Enums\ServiceTypeEnum.cs" />
+    <Compile Include="DataModels\OreillyBlackBoxLogModels\ORBlackBoxWebServiceTransactionModel.cs" />
+    <Compile Include="DataModels\RabbitMQModels\RabbitMQRequestModel.cs" />
+    <Compile Include="DataModels\ServiceV6Models\LogDiagnosticReport\LogDiagnosticReportModel.cs" />
+    <Compile Include="DataModels\ServiceV7Models\DiagnosticReport\DiagnosticReportForVDKModel.cs" />
+    <Compile Include="DataModels\ServiceV7Models\WebServiceKey\WebServiceKeyModel.cs" />
+    <Compile Include="DataObjects\DTCTypesInfo.cs" />
+    <Compile Include="DataObjects\ErrorCodeInfoDefinitionTool.cs" />
+    <Compile Include="DataObjects\FixFeedbackToolInfo.cs" />
+    <Compile Include="DataObjects\FixToolInfo.cs" />
+    <Compile Include="DataObjects\PayloadInfoMasterV02.cs" />
+    <Compile Include="DataObjects\RepairTipInfo.cs" />
+    <Compile Include="DataObjects\ToolInfoEx.cs" />
+    <Compile Include="DataObjects\VehicleInfoEx.cs" />
+    <Compile Include="DataObjects\ArticleCategoryInfo.cs" />
+    <Compile Include="DataObjects\ArticleInfo.cs" />
+    <Compile Include="DataObjects\ArticleInfoPageSpanned.cs" />
+    <Compile Include="DataObjects\FixFeedbackInfo.cs" />
+    <Compile Include="DataObjects\FixFeedbackPartInfo.cs" />
+    <Compile Include="DataObjects\FixPartOemInfo.cs" />
+    <Compile Include="DiagnosticReportLoggingV2.asmx.cs">
+      <DependentUpon>DiagnosticReportLoggingV2.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Helpers\PayloadHelper.cs" />
+    <Compile Include="Services\DiagnosticReportService.cs" />
+    <Compile Include="Services\PopulateDataForDiagReportInfo.cs" />
+    <Compile Include="Services\VINDecodingService.cs" />
+    <Compile Include="Web References\ServiceV7Client\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethods\DiagnosticReportLoggingV2WebMethods\Oreilly\OreillyDiagnosticReportLoggingV2Partial.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebMethods\DiagnosticReportLoggingV2WebMethods\Oreilly\OreillyDiagnosticReportLoggingV2Processor.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RabbitMQPublishers\RabbitMQHandler.cs" />
+    <Compile Include="DataObjects\Requests\PageSpanConfig.cs" />
+    <Compile Include="DataObjects\Requests\RequestBase.cs" />
+    <Compile Include="DataObjects\Requests\VehicleRequest.cs" />
+    <Compile Include="DataObjects\Responses\IDMServiceResponse.cs" />
+    <Compile Include="ServiceV7.asmx.cs">
+      <DependentUpon>ServiceV7.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataObjects\DiagReportInfo.cs" />
+    <Compile Include="DataObjects\DiagReportUpdateInfo.cs" />
+    <Compile Include="DataObjects\DLCLocationInfo.cs" />
+    <Compile Include="DataObjects\FixStatusInfo.cs" />
+    <Compile Include="DataObjects\PageSpanInfo.cs" />
+    <Compile Include="DataObjects\RecallInfo.cs" />
+    <Compile Include="DataObjects\ScheduleMaintenanceServiceInfo.cs" />
+    <Compile Include="DataObjects\ToolInfo.cs" />
+    <Compile Include="DataObjects\TSBCategoryInfo.cs" />
+    <Compile Include="DataObjects\TSBInfo.cs" />
+    <Compile Include="DataObjects\TSBTypeInfo.cs" />
+    <Compile Include="DataObjects\VehicleWarrantyDetailInfo.cs" />
+    <Compile Include="DataObjects\WebServiceKey.cs" />
+    <Compile Include="DataObjects\WebServiceSessionStatus.cs" />
+    <Compile Include="DataObjects\ErrorCodeInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObjects\ErrorCodeInfoDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObjects\ErrorCodeInfoDefinitionVehicle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObjects\FixInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObjects\FixPartInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObjects\FreezeFrameInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObjects\MonitorInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObjects\ValidationFailure.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObjects\VehicleInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Middlewares\SoapExceptionHandler.cs" />
+    <Compile Include="Middlewares\SoapExceptionHandlingAttribute.cs" />
+    <Compile Include="WebMethods\ServiceV7WebMethods\DecodePayloadWebMethodPartial.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebMethods\ServiceV7WebMethods\DiagnosticReportWebMethodPartial.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebMethods\ServiceV7WebMethods\DTCWebMethodPartial.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebServiceBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\XmlHelper.cs" />
+    <Content Include="DiagnosticReportLoggingV2.asmx" />
+    <Content Include="ServiceV7.asmx" />
+    <Content Include="Global.asax">
+      <SubType>Component</SubType>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\ServiceV7Client\DiagReportInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ServiceV7Client\DTCTypesInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ServiceV7Client\PayloadInfoMasterV02.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ServiceV7Client\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\ServiceV7Client\ServiceV7.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebServiceBase.resx">
+      <DependentUpon>WebServiceBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Web References\ServiceV7Client\ServiceV7.wsdl" />
+    <Content Include="Web References\ServiceV7Client\ToolInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Innova\Innova.csproj">
+      <Project>{dc54b161-d33f-49a0-bf1d-ec189d69b600}</Project>
+      <Name>Innova</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://dev-service7.innova.com/v2.0/ServiceV7.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ServiceV7Client\</RelPath>
+      <UpdateFromURL>https://dev-service7.innova.com/v2.0/ServiceV7.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Innova_WebServiceV07_RO_ServiceV7Client_ServiceV7</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55919</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Innova.WebServiceV07_RO</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

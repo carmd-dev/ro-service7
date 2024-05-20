@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://dev-service7.innova.com/v2.0/ServiceV7.asmx?wsdl" docRef="https://dev-service7.innova.com/v2.0/ServiceV7.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://dev-service7.innova.com/v2.0/ServiceV7.asmx" xmlns:q1="http://webservice.innova.com/ServiceV7/" binding="q1:ServiceV7Soap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://dev-service7.innova.com/v2.0/ServiceV7.asmx" xmlns:q2="http://webservice.innova.com/ServiceV7/" binding="q2:ServiceV7Soap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:tns="http://webservice.innova.com/ServiceV7/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://webservice.innova.com/ServiceV7/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webservice.innova.com/ServiceV7/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="DecodeRawStringAndGetVehicleInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:WebServiceKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="rawUploadString" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="toolTypeFormatInt" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WebServiceKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Currency" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MarketString" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DecodeRawStringAndGetVehicleInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DecodeRawStringAndGetVehicleInfoResult" type="tns:ToolInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ToolInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Vin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToolId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmwareVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SoftwareVersion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoftwareType" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToolTypeFormat" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleInfo" type="tns:VehicleInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="MilDTC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StoredPowerTrains" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="PendingPowerTrains" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="PermanentPowerTrains" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="StoredABSCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="PendingABSCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="AllABS" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="StoredSRSCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="PendingSRSCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="AllSRS" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="StoredOBD1Codes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="PendingOBD1Codes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnhancedCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebServiceSessionStatus" type="tns:WebServiceSessionStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodeInfoDefinitionTools" type="tns:ArrayOfErrorCodeInfoDefinitionTool" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleInfoEx" type="tns:VehicleInfoEx" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToolInfoEx" type="tns:ToolInfoEx" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreezeFrame" type="tns:ArrayOfFreezeFrameInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Monitors" type="tns:ArrayOfMonitorInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VehicleInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="VehicleId" nillable="true" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsValid" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidationFailures" type="tns:ArrayOfValidationFailure" />
+          <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EngineType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Transmission" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FuelMPGCombined" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FuelMPGCity" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FuelMPGHighway" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerNameAlt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EngineVINCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BodyType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrimLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Series" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AAIA" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mileage" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MileageLastRecordedDateTimeUTC" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendScheduledMaintenanceAlerts" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendNewTSBAlerts" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendNewRecallAlerts" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewRecallsToAlert" type="tns:ArrayOfRecallInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewTSBsToAlert" type="tns:ArrayOfTSBInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScheduleMaintenanceServices" type="tns:ArrayOfScheduleMaintenanceServiceInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModelImageFileUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ACESId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfValidationFailure">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ValidationFailure" nillable="true" type="tns:ValidationFailure" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ValidationFailure">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRecallInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RecallInfo" nillable="true" type="tns:RecallInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RecallInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RecordNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CampaignNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecallDateString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DefectDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DefectConsequence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DefectCorrectiveAction" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTSBInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TSBInfo" nillable="true" type="tns:TSBInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TSBInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TsbId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileNamePDF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PDFFileUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssueDateString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TsbText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedDateString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdatedDateString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="System" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AutoSystem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTCcodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="TSBTypes" type="tns:ArrayOfTSBTypeInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="TSBCategories" type="tns:ArrayOfTSBCategoryInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTSBTypeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TSBTypeInfo" nillable="true" type="tns:TSBTypeInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TSBTypeInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTSBCategoryInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TSBCategoryInfo" nillable="true" type="tns:TSBCategoryInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TSBCategoryInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TSBCount" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfScheduleMaintenanceServiceInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduleMaintenanceServiceInfo" nillable="true" type="tns:ScheduleMaintenanceServiceInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduleMaintenanceServiceInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Mileage" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceInfo" type="tns:FixInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FixInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FixNameId" nillable="true" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCodeSystemType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SortOrder" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaborHours" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaborRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaborCost" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PartsCost" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdditionalCost" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCost" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FixRating" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FixFeedbacks" type="tns:ArrayOfFixFeedbackInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelatedArticles" type="tns:ArrayOfArticleInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PredictiveDiagnosticPercentInMileage" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PredictiveDiagnosticCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FixParts" type="tns:ArrayOfFixPartInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="FixTools" type="tns:ArrayOfFixToolInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="FixId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="FrequencyCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityVotes" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OBDFixApproved" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="RepairTipInfo" type="tns:RepairTipInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFixFeedbackInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FixFeedbackInfo" nillable="true" type="tns:FixFeedbackInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FixFeedbackInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DiagnosticReportId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsReportValid" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CouldNotFixReason" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimaryErrorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiagnosticReportErrorCodeSystemType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fix" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AverageDiagnosticTimeMinutes" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FrequencyEncountered" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FixDifficultyRating" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodesThatApply" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TechComments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BasicToolsRequired" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialtyToolsRequired" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipsAndTricks" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Parts" type="tns:ArrayOfFixFeedbackPartInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tools" type="tns:ArrayOfFixFeedbackToolInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFixFeedbackPartInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FixFeedbackPartInfo" nillable="true" type="tns:FixFeedbackPartInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FixFeedbackPartInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DiagnosticReportFixFeedbackId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFixFeedbackToolInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FixFeedbackToolInfo" nillable="true" type="tns:FixFeedbackToolInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FixFeedbackToolInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DiagnosticReportFixFeedbackId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToolNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToolDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfArticleInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArticleInfo" nillable="true" type="tns:ArticleInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArticleInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ArticleId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdminUserNameCreated" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdminUserNameUpdated" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimaryArticleCategoryId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimaryArticleCategoryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArticleTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Author" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedDateTimeUTCString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndDateString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsFree" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keywords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartDateString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Summary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdatedDateTimeUTCString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VideoDurationSeconds" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VideoHeight" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VideoThumbnailUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VideoDownloadUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VideoStreamingUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VideoWidth" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFixPartInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FixPartInfo" nillable="true" type="tns:FixPartInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FixPartInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ACESPartTypeID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MakesList" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NapaPartNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodemasterID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FixPartOemInfos" type="tns:ArrayOfFixPartOemInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFixPartOemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FixPartOemInfo" nillable="true" type="tns:FixPartOemInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FixPartOemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="retailer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="manufacturer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="oemPartNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFixToolInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FixToolInfo" nillable="true" type="tns:FixToolInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FixToolInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ToolId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MakesList" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetailersList" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToolNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RepairTipInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FixName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InitialInspection" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PossibleCause" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiagnosticProcedure" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RepairValidation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebServiceSessionStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ValidationFailures" type="tns:ArrayOfValidationFailure" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfErrorCodeInfoDefinitionTool">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ErrorCodeInfoDefinitionTool" nillable="true" type="tns:ErrorCodeInfoDefinitionTool" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ErrorCodeInfoDefinitionTool">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ErrorCodeInfoDefinition">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ErrorCodeInfoDefinition">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaymansTermsTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaymansTermDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PossibleCauses" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Conditions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaymansTermsConditions" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LaymansTermSeverityLevel" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaymansTermSeverityLevelDefinition" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaymansTermEffectOnVehicle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaymansTermResponsibleComponentOrSystem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LaymansTermWhyItsImportant" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageIndicatorLampFile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageIndicatorLampFileUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MonitorFile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MonitorFileUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MonitorType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassiveAntiTheftIndicatorLampFile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassiveAntiTheftIndicatorLampFileUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceThrottleSoonIndicatorLampFile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceThrottleSoonIndicatorLampFileUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransmissionControlIndicatorLampFile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransmissionControlIndicatorLampFileUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Trips" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodeDefinitionVehicles" type="tns:ArrayOfErrorCodeInfoDefinitionVehicle" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfErrorCodeInfoDefinitionVehicle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ErrorCodeInfoDefinitionVehicle" nillable="true" type="tns:ErrorCodeInfoDefinitionVehicle" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ErrorCodeInfoDefinitionVehicle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EngineType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BodyCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VehicleInfoEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="VinProfileVIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleInfoVIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Odometer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ToolInfoEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFreezeFrameInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FreezeFrameInfo" nillable="true" type="tns:FreezeFrameInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FreezeFrameInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMonitorInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MonitorInfo" nillable="true" type="tns:MonitorInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MonitorInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPayloadInfoV02">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:WebServiceKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="payload" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPayloadInfoV02Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPayloadInfoV02Result" type="tns:PayloadInfoMasterV02" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PayloadInfoMasterV02">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WebServiceSessionStatus" type="tns:WebServiceSessionStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="PIds" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Protocol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Manufacture" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MonitorStatuses" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CallibrationIds" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CallibrationVerificationNumbers" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPTItem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MILStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LEDStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueToolID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirmwareVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompletedMonitors" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InCompleteMonitors" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SILStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ABSLightStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Odometer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CELDTCCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CELDTC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CELDTCGotDefCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ABSDTCCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ABSDTCGotDefCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ABSDTCDefsString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ABSDTCRepairStatusString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ABSStateString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OEMDtcStateString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OEMDtcRepairStatusString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SRSDTCCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SRSDTCGotDefCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SRSDTCDefsString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SRSDTCRepairStatusString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TCMDTCCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TCMDTCGotDefCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCMDTCDefsString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCMDTCRepairStatusString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordTimeTotal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OilLifeStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OilLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BrakePadLife" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BateryVoltage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TPMS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TPMSMILStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EngineType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateDiagnosticReportForVDK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:WebServiceKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserIdGuidString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserLastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserEmailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserPhoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserRegion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mileage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="transmission" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeRecallsForVehicle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeTSBsForVehicleAndMatchingErrorCodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeTSBCountForVehicle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeNextScheduledMaintenance" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeWarrantyInfo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="softwareTypeInt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="toolTypeFormatInt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="rawUpload" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwrFixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="obd1FixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="absFixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="srsFixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDiagnosticReportForVDKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDiagnosticReportForVDKResult" type="tns:DiagReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DiagReportInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WebServiceSessionStatus" type="tns:WebServiceSessionStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle" type="tns:VehicleInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Symptoms" type="tns:ArrayOfSymptomInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfErrorCodeInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToolLEDStatusDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreezeFrame" type="tns:ArrayOfFreezeFrameInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiagnosticReportId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Monitors" type="tns:ArrayOfMonitorInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fixes" type="tns:ArrayOfFixInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Recalls" type="tns:ArrayOfRecallInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="TSBs" type="tns:ArrayOfTSBInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="TSBCategories" type="tns:ArrayOfTSBCategoryInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScheduledMaintenanceNextMileage" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TSBCountAll" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasScheduledMaintenance" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasUnScheduledMaintenance" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasVehicleWarrantyDetails" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScheduleMaintenanceServices" type="tns:ArrayOfScheduleMaintenanceServiceInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnScheduledMaintenanceNextMileage" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnScheduledMaintenanceServices" type="tns:ArrayOfScheduleMaintenanceServiceInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleWarrantyDetails" type="tns:ArrayOfVehicleWarrantyDetailInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="FixStatusInfo" type="tns:FixStatusInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="SILStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsAbsSupported" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSrsSupported" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSymptomInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SymptomInfo" nillable="true" type="tns:SymptomInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SymptomInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SymptomId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObservedEvent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperationalCondition" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SurveyTechnicalInspection" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfErrorCodeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ErrorCodeInfo" nillable="true" type="tns:ErrorCodeInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ErrorCodeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodeType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCodeSystemType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCodeDefinitions" type="tns:ArrayOfErrorCodeInfoDefinition" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasMultipleDefinitions" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="RepairStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfErrorCodeInfoDefinition">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ErrorCodeInfoDefinition" nillable="true" type="tns:ErrorCodeInfoDefinition" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFixInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FixInfo" nillable="true" type="tns:FixInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVehicleWarrantyDetailInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VehicleWarrantyDetailInfo" nillable="true" type="tns:VehicleWarrantyDetailInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VehicleWarrantyDetailInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WarrantyTypeDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WarrantyType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxYears" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxMileage" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTransferable" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescriptionFormatted" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FixStatusInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WebServiceSessionStatus" type="tns:WebServiceSessionStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiagnosticReportInfo" type="tns:DiagReportInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PwrFixStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PwrFixStatusDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PwrFixLookupCancelledReason" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Obd1FixStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Obd1FixStatusDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Obd1FixLookupCancelledReason" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AbsFixStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AbsFixStatusDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AbsFixLookupCancelledReason" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SrsFixStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SrsFixStatusDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SrsFixLookupCancelledReason" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateDiagnosticReportForVDKAndGetRepairTips">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:WebServiceKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserIdGuidString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserLastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserEmailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserPhoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserRegion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mileage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="transmission" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeRecallsForVehicle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeTSBsForVehicleAndMatchingErrorCodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeTSBCountForVehicle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeNextScheduledMaintenance" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeWarrantyInfo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="softwareTypeInt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="toolTypeFormatInt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="rawUpload" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwrFixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="obd1FixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="absFixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="srsFixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDiagnosticReportForVDKAndGetRepairTipsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDiagnosticReportForVDKAndGetRepairTipsResult" type="tns:DiagReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDiagnosticReportExisting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:WebServiceKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="diagnosticReportIdGuidString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeRecallsForVehicle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeTSBsForVehicleAndMatchingErrorCodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeTSBCountForVehicle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeNextScheduledMaintenance" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeWarrantyInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDiagnosticReportExistingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDiagnosticReportExistingResult" type="tns:DiagReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDiagnosticReportV2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:WebServiceKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserIdGuidString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserLastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserEmailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserPhoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalSystemUserRegion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mileage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="transmission" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeRecallsForVehicle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeTSBsForVehicleAndMatchingErrorCodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeTSBCountForVehicle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeNextScheduledMaintenance" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="includeWarrantyInfo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="softwareTypeInt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="toolTypeFormatInt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="rawUpload" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwrFixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="obd1FixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="absFixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="srsFixNotFoundFixPromisedByDateTimeUTCString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newDiagnosticReportId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDiagnosticReportV2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDiagnosticReportV2Result" type="tns:DiagReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDTCTypeInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="tns:WebServiceKey" />
+            <s:element minOccurs="0" maxOccurs="1" name="payload" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDTCTypeInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDTCTypeInfoResult" type="tns:ArrayOfDTCTypesInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDTCTypesInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DTCTypesInfo" nillable="true" type="tns:DTCTypesInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DTCTypesInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DTC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RepairStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Types" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DecodeRawStringAndGetVehicleInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:DecodeRawStringAndGetVehicleInfo" />
+  </wsdl:message>
+  <wsdl:message name="DecodeRawStringAndGetVehicleInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:DecodeRawStringAndGetVehicleInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPayloadInfoV02SoapIn">
+    <wsdl:part name="parameters" element="tns:GetPayloadInfoV02" />
+  </wsdl:message>
+  <wsdl:message name="GetPayloadInfoV02SoapOut">
+    <wsdl:part name="parameters" element="tns:GetPayloadInfoV02Response" />
+  </wsdl:message>
+  <wsdl:message name="CreateDiagnosticReportForVDKSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDiagnosticReportForVDK" />
+  </wsdl:message>
+  <wsdl:message name="CreateDiagnosticReportForVDKSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDiagnosticReportForVDKResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDiagnosticReportForVDKAndGetRepairTipsSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDiagnosticReportForVDKAndGetRepairTips" />
+  </wsdl:message>
+  <wsdl:message name="CreateDiagnosticReportForVDKAndGetRepairTipsSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDiagnosticReportForVDKAndGetRepairTipsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDiagnosticReportExistingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDiagnosticReportExisting" />
+  </wsdl:message>
+  <wsdl:message name="GetDiagnosticReportExistingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDiagnosticReportExistingResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDiagnosticReportV2SoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDiagnosticReportV2" />
+  </wsdl:message>
+  <wsdl:message name="CreateDiagnosticReportV2SoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDiagnosticReportV2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetDTCTypeInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDTCTypeInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDTCTypeInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDTCTypeInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceV7Soap">
+    <wsdl:operation name="DecodeRawStringAndGetVehicleInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Decodes the raw upload string and returns a ToolInformation object and Vehicle information. If an error occurs, an unpopulated ToolInfo object is returned with errors on the field WebServiceSessionStatus</wsdl:documentation>
+      <wsdl:input message="tns:DecodeRawStringAndGetVehicleInfoSoapIn" />
+      <wsdl:output message="tns:DecodeRawStringAndGetVehicleInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayloadInfoV02">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Payload Info V02</wsdl:documentation>
+      <wsdl:input message="tns:GetPayloadInfoV02SoapIn" />
+      <wsdl:output message="tns:GetPayloadInfoV02SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDiagnosticReportForVDK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new diagnostic report for the specified payload and also optionally include TSBs and Recalls Information for the vehicle</wsdl:documentation>
+      <wsdl:input message="tns:CreateDiagnosticReportForVDKSoapIn" />
+      <wsdl:output message="tns:CreateDiagnosticReportForVDKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDiagnosticReportForVDKAndGetRepairTips">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new diagnostic report for the specified payload and also optionally include TSBs and Recalls, RepairTips Information for the vehicle</wsdl:documentation>
+      <wsdl:input message="tns:CreateDiagnosticReportForVDKAndGetRepairTipsSoapIn" />
+      <wsdl:output message="tns:CreateDiagnosticReportForVDKAndGetRepairTipsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagnosticReportExisting">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the diagnostic as it is already in the database.  Should be used only for special circumstances to retrieve the existing diagnostic report for presentation (i.e. see it in a different language than what was stored the first time)</wsdl:documentation>
+      <wsdl:input message="tns:GetDiagnosticReportExistingSoapIn" />
+      <wsdl:output message="tns:GetDiagnosticReportExistingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDiagnosticReportV2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used for RO RabbitMQ call - Creates a new diagnostic report for the specified payload and also optionally include TSBs and Recalls Information for the vehicle</wsdl:documentation>
+      <wsdl:input message="tns:CreateDiagnosticReportV2SoapIn" />
+      <wsdl:output message="tns:CreateDiagnosticReportV2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDTCTypeInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get DTC Type Info</wsdl:documentation>
+      <wsdl:input message="tns:GetDTCTypeInfoSoapIn" />
+      <wsdl:output message="tns:GetDTCTypeInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceV7Soap" type="tns:ServiceV7Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DecodeRawStringAndGetVehicleInfo">
+      <soap:operation soapAction="http://webservice.innova.com/ServiceV7/DecodeRawStringAndGetVehicleInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayloadInfoV02">
+      <soap:operation soapAction="http://webservice.innova.com/ServiceV7/GetPayloadInfoV02" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDiagnosticReportForVDK">
+      <soap:operation soapAction="http://webservice.innova.com/ServiceV7/CreateDiagnosticReportForVDK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDiagnosticReportForVDKAndGetRepairTips">
+      <soap:operation soapAction="http://webservice.innova.com/ServiceV7/CreateDiagnosticReportForVDKAndGetRepairTips" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagnosticReportExisting">
+      <soap:operation soapAction="http://webservice.innova.com/ServiceV7/GetDiagnosticReportExisting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDiagnosticReportV2">
+      <soap:operation soapAction="http://webservice.innova.com/ServiceV7/CreateDiagnosticReportV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDTCTypeInfo">
+      <soap:operation soapAction="http://webservice.innova.com/ServiceV7/GetDTCTypeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceV7Soap12" type="tns:ServiceV7Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DecodeRawStringAndGetVehicleInfo">
+      <soap12:operation soapAction="http://webservice.innova.com/ServiceV7/DecodeRawStringAndGetVehicleInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayloadInfoV02">
+      <soap12:operation soapAction="http://webservice.innova.com/ServiceV7/GetPayloadInfoV02" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDiagnosticReportForVDK">
+      <soap12:operation soapAction="http://webservice.innova.com/ServiceV7/CreateDiagnosticReportForVDK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDiagnosticReportForVDKAndGetRepairTips">
+      <soap12:operation soapAction="http://webservice.innova.com/ServiceV7/CreateDiagnosticReportForVDKAndGetRepairTips" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagnosticReportExisting">
+      <soap12:operation soapAction="http://webservice.innova.com/ServiceV7/GetDiagnosticReportExisting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDiagnosticReportV2">
+      <soap12:operation soapAction="http://webservice.innova.com/ServiceV7/CreateDiagnosticReportV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDTCTypeInfo">
+      <soap12:operation soapAction="http://webservice.innova.com/ServiceV7/GetDTCTypeInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceV7">
+    <wsdl:port name="ServiceV7Soap" binding="tns:ServiceV7Soap">
+      <soap:address location="https://dev-service7.innova.com/v2.0/ServiceV7.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceV7Soap12" binding="tns:ServiceV7Soap12">
+      <soap12:address location="https://dev-service7.innova.com/v2.0/ServiceV7.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,10 @@
+.vs/
+bin/
+obj/
+packages/
+PublishProfiles/
+Logs/
+Resources/
+/Innova/Innova.csproj.vspscc
+/Innova/Innova.csproj.user
+/Innova.WebServiceV07.RO/Innova.WebServiceV07.RO.csproj.user

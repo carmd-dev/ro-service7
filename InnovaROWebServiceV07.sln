@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "___Library", "___Library", "{37F2DA60-DB2D-4EBC-95FF-F19F29868421}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "___Web Services", "___Web Services", "{BEAB50B8-743C-44A1-954E-5E5FB4B531AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Innova", "Innova\Innova.csproj", "{DC54B161-D33F-49A0-BF1D-EC189D69B600}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Innova.WebServiceV07.RO", "Innova.WebServiceV07.RO\Innova.WebServiceV07.RO.csproj", "{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AUTOZONE Debug|Any CPU = AUTOZONE Debug|Any CPU
+		AUTOZONE Release|Any CPU = AUTOZONE Release|Any CPU
+		Debug CanOBD2.WebApp|Any CPU = Debug CanOBD2.WebApp|Any CPU
+		Debug Innova Admin Web App|Any CPU = Debug Innova Admin Web App|Any CPU
+		Debug OBDFix Web App|Any CPU = Debug OBDFix Web App|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.AUTOZONE Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.AUTOZONE Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.AUTOZONE Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.AUTOZONE Release|Any CPU.Build.0 = Release|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.Debug CanOBD2.WebApp|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.Debug CanOBD2.WebApp|Any CPU.Build.0 = Debug|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.Debug Innova Admin Web App|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.Debug Innova Admin Web App|Any CPU.Build.0 = Debug|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.Debug OBDFix Web App|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.Debug OBDFix Web App|Any CPU.Build.0 = Debug|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.AUTOZONE Debug|Any CPU.ActiveCfg = AUTOZONE Debug|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.AUTOZONE Debug|Any CPU.Build.0 = AUTOZONE Debug|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.AUTOZONE Release|Any CPU.ActiveCfg = AUTOZONE Release|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.AUTOZONE Release|Any CPU.Build.0 = AUTOZONE Release|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.Debug CanOBD2.WebApp|Any CPU.ActiveCfg = Debug CanOBD2.WebApp|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.Debug CanOBD2.WebApp|Any CPU.Build.0 = Debug CanOBD2.WebApp|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.Debug Innova Admin Web App|Any CPU.ActiveCfg = Debug Innova Admin Web App|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.Debug Innova Admin Web App|Any CPU.Build.0 = Debug Innova Admin Web App|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.Debug OBDFix Web App|Any CPU.ActiveCfg = Debug OBDFix Web App|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.Debug OBDFix Web App|Any CPU.Build.0 = Debug OBDFix Web App|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DC54B161-D33F-49A0-BF1D-EC189D69B600} = {37F2DA60-DB2D-4EBC-95FF-F19F29868421}
+		{8EBBBB2E-FB52-4A1B-A97C-43C0F8E0A5B2} = {BEAB50B8-743C-44A1-954E-5E5FB4B531AD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC00DC62-A108-4927-AA50-594C32218F90}
+	EndGlobalSection
+EndGlobal

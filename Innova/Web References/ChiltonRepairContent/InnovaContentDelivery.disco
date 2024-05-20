@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://s-content.chiltonsonline.com/Services/InnovaContentDelivery.asmx?wsdl" docRef="http://s-content.chiltonsonline.com/Services/InnovaContentDelivery.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://s-content.chiltonsonline.com/Services/InnovaContentDelivery.asmx" xmlns:q1="http://innova.content.chiltonsonline.com/" binding="q1:InnovaContentDeliverySoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://s-content.chiltonsonline.com/Services/InnovaContentDelivery.asmx" xmlns:q2="http://innova.content.chiltonsonline.com/" binding="q2:InnovaContentDeliverySoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

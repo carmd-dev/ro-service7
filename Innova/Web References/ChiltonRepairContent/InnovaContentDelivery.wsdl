@@ -1,0 +1,1634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s1="http://www.chiltonsonline.com/InnovaContentDeliveryMessages.xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s2="http://microsoft.com/wsdl/types/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://innova.content.chiltonsonline.com/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://innova.content.chiltonsonline.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;h4&gt;Web service supporting Chilton repair content delivery to Innova.&lt;/h4&gt;</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://innova.content.chiltonsonline.com/">
+      <s:import namespace="http://www.chiltonsonline.com/InnovaContentDeliveryMessages.xsd" />
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="MapFix">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:InnovaFixItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="ChiltonRepairPath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MapFixResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MapFixResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChiltonAuthorizationHeader" type="tns:ChiltonAuthorizationHeader" />
+      <s:complexType name="ChiltonAuthorizationHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EncryptedKey" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="UnmapFix">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:InnovaFixItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="ChiltonRepairPath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnmapFixResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnmapFixResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllChiltonRepairs">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllChiltonRepairsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllChiltonRepairsResult" type="tns:ArrayOfChiltonRepairItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfChiltonRepairItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ChiltonRepairItem" nillable="true" type="s1:ChiltonRepairItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllInnovaFixes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllInnovaFixesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllInnovaFixesResult" type="tns:ArrayOfInnovaFixItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInnovaFixItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InnovaFixItem" nillable="true" type="s1:InnovaFixItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllMappedFixes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllMappedFixesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllMappedFixesResult" type="tns:ArrayOfMappedFixItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMappedFixItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MappedFixItem" nillable="true" type="s1:MappedFixItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllMappedChiltonRepairs">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllMappedChiltonRepairsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllMappedChiltonRepairsResult" type="tns:ArrayOfChiltonRepairItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUnmappedChiltonRepairs">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllUnmappedChiltonRepairsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUnmappedChiltonRepairsResult" type="tns:ArrayOfChiltonRepairItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMappedFixesForFix">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:InnovaFixItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMappedFixesForFixResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMappedFixesForFixResult" type="tns:ArrayOfMappedFixItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMappedFixesForRepair">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChiltonRepairPath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMappedFixesForRepairResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMappedFixesForRepairResult" type="tns:ArrayOfMappedFixItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllOrphanedFixes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllOrphanedFixesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllOrphanedFixesResult" type="tns:ArrayOfInnovaFixItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMatchingRepairs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TextToMatch" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TopResultsAt" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMatchingRepairsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMatchingRepairsResult" type="tns:ArrayOfChiltonRepairItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StoreTranslatedArticle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:TranslatedRepairItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StoreTranslatedArticleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StoreTranslatedArticleResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTranslatedArticle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TranslatedArticleId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTranslatedArticleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveTranslatedArticleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFixById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FixId" type="s2:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFixByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:InnovaFixItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBaseVehiclesForPath">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChiltonPath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBaseVehiclesForPathResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBaseVehiclesForPathResult" type="tns:ArrayOfChiltonBaseVehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfChiltonBaseVehicle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ChiltonBaseVehicle" nillable="true" type="tns:ChiltonBaseVehicle" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChiltonBaseVehicle">
+        <s:attribute name="BaseVehicleID" type="s:int" use="required" />
+        <s:attribute name="YearID" type="s:int" use="required" />
+        <s:attribute name="MakeID" type="s:int" use="required" />
+        <s:attribute name="MakeName" type="s:string" />
+        <s:attribute name="ModelID" type="s:int" use="required" />
+        <s:attribute name="ModelName" type="s:string" />
+      </s:complexType>
+      <s:element name="MappedFixVehicleExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:MappedFixItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="VehicleIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MappedFixVehicleExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MappedFixVehicleExistsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FixVehicleExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FixId" type="s2:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="VehicleIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FixVehicleExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FixVehicleExistsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfChiltonRepairItem" nillable="true" type="tns:ArrayOfChiltonRepairItem" />
+      <s:element name="ArrayOfInnovaFixItem" nillable="true" type="tns:ArrayOfInnovaFixItem" />
+      <s:element name="ArrayOfMappedFixItem" nillable="true" type="tns:ArrayOfMappedFixItem" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfChiltonBaseVehicle" nillable="true" type="tns:ArrayOfChiltonBaseVehicle" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.chiltonsonline.com/InnovaContentDeliveryMessages.xsd">
+      <s:element name="InnovaFixItem" type="s1:InnovaFixItem" />
+      <s:complexType name="InnovaFixItem">
+        <s:attribute name="FixId" type="s:string" />
+        <s:attribute name="Name" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ChiltonRepairItem">
+        <s:attribute name="ParentPath" type="s:string" />
+        <s:attribute name="Path" type="s:string" />
+        <s:attribute name="XPath" type="s:string" />
+        <s:attribute name="TOCId" type="s:int" use="required" />
+        <s:attribute name="TOCName" type="s:string" />
+        <s:attribute name="LanguageCode" type="s:language" />
+        <s:attribute name="DateRequested" type="s:dateTime" use="required" />
+        <s:attribute name="RequestedByUserName" type="s:string" />
+      </s:complexType>
+      <s:complexType name="MappedFixItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InnovaFixItem" type="s1:InnovaFixItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChiltonRepairItem" type="s1:ChiltonRepairItem" />
+        </s:sequence>
+        <s:attribute name="DateMapped" type="s:dateTime" use="required" />
+        <s:attribute name="MappedByUserName" type="s:string" />
+        <s:attribute name="ContextBVID" type="s:positiveInteger" />
+      </s:complexType>
+      <s:element name="TranslatedRepairItem" type="s1:TranslatedRepairItem" />
+      <s:complexType name="TranslatedRepairItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InnovaFixItem" type="s1:InnovaFixItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChiltonRepairItem" type="s1:ChiltonRepairItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="TranslatedContent" type="s:string" />
+        </s:sequence>
+        <s:attribute name="ArticleTitle" type="s:string" />
+        <s:attribute name="LanguageCode" type="s:language" />
+      </s:complexType>
+      <s:element name="MappedFixItem" type="s1:MappedFixItem" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="MapFixSoapIn">
+    <wsdl:part name="parameters" element="tns:MapFix" />
+  </wsdl:message>
+  <wsdl:message name="MapFixSoapOut">
+    <wsdl:part name="parameters" element="tns:MapFixResponse" />
+  </wsdl:message>
+  <wsdl:message name="MapFixChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UnmapFixSoapIn">
+    <wsdl:part name="parameters" element="tns:UnmapFix" />
+  </wsdl:message>
+  <wsdl:message name="UnmapFixSoapOut">
+    <wsdl:part name="parameters" element="tns:UnmapFixResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnmapFixChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAllChiltonRepairsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllChiltonRepairs" />
+  </wsdl:message>
+  <wsdl:message name="GetAllChiltonRepairsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllChiltonRepairsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllChiltonRepairsChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAllInnovaFixesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllInnovaFixes" />
+  </wsdl:message>
+  <wsdl:message name="GetAllInnovaFixesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllInnovaFixesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllInnovaFixesChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMappedFixesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllMappedFixes" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMappedFixesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllMappedFixesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMappedFixesChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMappedChiltonRepairsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllMappedChiltonRepairs" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMappedChiltonRepairsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllMappedChiltonRepairsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMappedChiltonRepairsChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnmappedChiltonRepairsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUnmappedChiltonRepairs" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnmappedChiltonRepairsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUnmappedChiltonRepairsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnmappedChiltonRepairsChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetMappedFixesForFixSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMappedFixesForFix" />
+  </wsdl:message>
+  <wsdl:message name="GetMappedFixesForFixSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMappedFixesForFixResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMappedFixesForFixChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetMappedFixesForRepairSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMappedFixesForRepair" />
+  </wsdl:message>
+  <wsdl:message name="GetMappedFixesForRepairSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMappedFixesForRepairResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMappedFixesForRepairChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrphanedFixesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllOrphanedFixes" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrphanedFixesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllOrphanedFixesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrphanedFixesChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchingRepairsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMatchingRepairs" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchingRepairsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMatchingRepairsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchingRepairsChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="StoreTranslatedArticleSoapIn">
+    <wsdl:part name="parameters" element="tns:StoreTranslatedArticle" />
+  </wsdl:message>
+  <wsdl:message name="StoreTranslatedArticleSoapOut">
+    <wsdl:part name="parameters" element="tns:StoreTranslatedArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="StoreTranslatedArticleChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTranslatedArticleSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveTranslatedArticle" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTranslatedArticleSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveTranslatedArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTranslatedArticleChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetFixByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFixById" />
+  </wsdl:message>
+  <wsdl:message name="GetFixByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFixByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFixByIdChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBaseVehiclesForPathSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBaseVehiclesForPath" />
+  </wsdl:message>
+  <wsdl:message name="GetBaseVehiclesForPathSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBaseVehiclesForPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="MappedFixVehicleExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:MappedFixVehicleExists" />
+  </wsdl:message>
+  <wsdl:message name="MappedFixVehicleExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:MappedFixVehicleExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MappedFixVehicleExistsChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="FixVehicleExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:FixVehicleExists" />
+  </wsdl:message>
+  <wsdl:message name="FixVehicleExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:FixVehicleExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FixVehicleExistsChiltonAuthorizationHeader">
+    <wsdl:part name="ChiltonAuthorizationHeader" element="tns:ChiltonAuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAllChiltonRepairsHttpGetIn" />
+  <wsdl:message name="GetAllChiltonRepairsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfChiltonRepairItem" />
+  </wsdl:message>
+  <wsdl:message name="GetAllInnovaFixesHttpGetIn" />
+  <wsdl:message name="GetAllInnovaFixesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInnovaFixItem" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMappedFixesHttpGetIn" />
+  <wsdl:message name="GetAllMappedFixesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMappedFixItem" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMappedChiltonRepairsHttpGetIn" />
+  <wsdl:message name="GetAllMappedChiltonRepairsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfChiltonRepairItem" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUnmappedChiltonRepairsHttpGetIn" />
+  <wsdl:message name="GetAllUnmappedChiltonRepairsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfChiltonRepairItem" />
+  </wsdl:message>
+  <wsdl:message name="GetMappedFixesForRepairHttpGetIn">
+    <wsdl:part name="ChiltonRepairPath" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMappedFixesForRepairHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMappedFixItem" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrphanedFixesHttpGetIn" />
+  <wsdl:message name="GetAllOrphanedFixesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInnovaFixItem" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchingRepairsHttpGetIn">
+    <wsdl:part name="TextToMatch" type="s:string" />
+    <wsdl:part name="TopResultsAt" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMatchingRepairsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfChiltonRepairItem" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTranslatedArticleHttpGetIn">
+    <wsdl:part name="TranslatedArticleId" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTranslatedArticleHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetBaseVehiclesForPathHttpGetIn">
+    <wsdl:part name="ChiltonPath" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBaseVehiclesForPathHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfChiltonBaseVehicle" />
+  </wsdl:message>
+  <wsdl:portType name="InnovaContentDeliverySoap">
+    <wsdl:operation name="MapFix">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;MapFix&lt;/i&gt;: Maps an Innova fix to a Chilton repair path
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;IFix&lt;/td&gt;
+				&lt;td&gt;InnovaFixItem&lt;/td&gt;
+				&lt;td&gt;object containing the GUID fix id and fix name&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;ChiltonRepairPath&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;&amp;gt; delimited Chilton repair path&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;UserName&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;name of the mapper&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;1&lt;/b&gt;: mapped successfully&lt;br/&gt;
+				&lt;b&gt;2&lt;/b&gt;: it's already mapped -- not mapped again&lt;br/&gt;
+				&lt;b&gt;3&lt;/b&gt;: too many mappings (3 is the limit per fix) -- not mapped&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MapFixSoapIn" />
+      <wsdl:output message="tns:MapFixSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnmapFix">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;UnmapFix&lt;/i&gt;: Removes the mapping between an Innova fix and a Chilton repair path
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;IFix&lt;/td&gt;
+				&lt;td&gt;InnovaFixItem&lt;/td&gt;
+				&lt;td&gt;object containing the GUID fix id and fix name&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;ChiltonRepairPath&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;&amp;gt; delimited Chilton repair path&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;UserName&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;name of the un-mapper&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;true&lt;/b&gt;: unmapped successfully&lt;br/&gt;
+				&lt;b&gt;false&lt;/b&gt;: failed to unmap (this should not happen)&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:UnmapFixSoapIn" />
+      <wsdl:output message="tns:UnmapFixSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllChiltonRepairs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllChiltonRepairs&lt;/i&gt;: Retrieve a list of all Chilton repair paths
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;ChiltonRepairItem[]&lt;/b&gt;: simple object array of all Chilton repair paths&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllChiltonRepairsSoapIn" />
+      <wsdl:output message="tns:GetAllChiltonRepairsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInnovaFixes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllInnovaFixes&lt;/i&gt;: Retrieve a list of all Innova fixes stored in this system
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;InnovaFixItem[]&lt;/b&gt;: simple object array of all Innova fixes&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllInnovaFixesSoapIn" />
+      <wsdl:output message="tns:GetAllInnovaFixesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMappedFixes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllMappedFixes&lt;/i&gt;: Retrieve a list of all mapped fixes in this system
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;MappedFixItem[]&lt;/b&gt;: simple object array of all mapped fixes&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllMappedFixesSoapIn" />
+      <wsdl:output message="tns:GetAllMappedFixesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMappedChiltonRepairs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllMappedChiltonRepairs&lt;/i&gt;: Retrieve a list of all Chilton repair items that are currently mapped to fixes
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;ChiltonRepairItem[]&lt;/b&gt;: simple object array of mapped Chilton repair items&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllMappedChiltonRepairsSoapIn" />
+      <wsdl:output message="tns:GetAllMappedChiltonRepairsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnmappedChiltonRepairs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllUnmappedChiltonRepairs&lt;/i&gt;: Retrieve a list of all Chilton repair items that are NOT currently mapped to fixes
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;ChiltonRepairItem[]&lt;/b&gt;: simple object array of unmapped Chilton repair items&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllUnmappedChiltonRepairsSoapIn" />
+      <wsdl:output message="tns:GetAllUnmappedChiltonRepairsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMappedFixesForFix">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetMappedFixesForFix&lt;/i&gt;: Retrieve a list of all mapped fixes, given an Innova fix
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;FixItem&lt;/td&gt;
+				&lt;td&gt;InnovaFixItem&lt;/td&gt;
+				&lt;td&gt;object containing the GUID fix id and fix name&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;LanguageCode&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;language code -- if a language code other than en-us (or empty) is passed in, that translated Chilton article is returned&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;MappedFixItem[]&lt;/b&gt;: simple object array of fixes mapped to the passed-in fix item&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMappedFixesForFixSoapIn" />
+      <wsdl:output message="tns:GetMappedFixesForFixSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMappedFixesForRepair">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetMappedFixesForRepair&lt;/i&gt;: Retrieve a list of all mapped fixes, given an Chilton repair path fix
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;ChiltonRepairPath&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;&amp;gt; delimited Chilton repair path&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;MappedFixItem[]&lt;/b&gt;: simple object array of fixes mapped to the passed-in repair path&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMappedFixesForRepairSoapIn" />
+      <wsdl:output message="tns:GetMappedFixesForRepairSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrphanedFixes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllOrphanedFixes&lt;/i&gt;: Retrieve a list of all Innova fixes stored in this system that have been orphaned by a content update
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;InnovaFixItem[]&lt;/b&gt;: simple object array of all orphaned Innova fixes&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllOrphanedFixesSoapIn" />
+      <wsdl:output message="tns:GetAllOrphanedFixesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchingRepairs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetMatchingRepairs&lt;/i&gt;: Retrieve a list of all Chilton repair items that contain the value in TextToMatch
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;TextToMatch&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;value to match&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;TopResultsAt&lt;/td&gt;
+				&lt;td&gt;int&lt;/td&gt;
+				&lt;td&gt;limit the matching results to the top N&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;ChiltonRepairItem[]&lt;/b&gt;: simple object array of matching Chilton repair items&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMatchingRepairsSoapIn" />
+      <wsdl:output message="tns:GetMatchingRepairsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StoreTranslatedArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;StoreTranslatedArticle&lt;/i&gt;: Store a translated version of a Chilton article
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;RepairItem&lt;/td&gt;
+				&lt;td&gt;TranslatedRepairItem&lt;/td&gt;
+				&lt;td&gt;object containing the chilton path, language code, and translated content to store&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;UserName&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;name of the user&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;new int value&lt;/b&gt;: stored successfully; new id&lt;br/&gt;
+				&lt;b&gt;int.MinValue&lt;/b&gt;: failed to store (this should not happen)&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:StoreTranslatedArticleSoapIn" />
+      <wsdl:output message="tns:StoreTranslatedArticleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTranslatedArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;RemoveTranslatedArticle&lt;/i&gt;: Remove a previously-stored translated version of a Chilton article
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;TranslatedArticleId&lt;/td&gt;
+				&lt;td&gt;int&lt;/td&gt;
+				&lt;td&gt;id of translated article to remove&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;UserName&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;name of the user&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;true&lt;/b&gt;: removed successfully&lt;br/&gt;
+				&lt;b&gt;false&lt;/b&gt;: failed to remove (this should not happen)&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:RemoveTranslatedArticleSoapIn" />
+      <wsdl:output message="tns:RemoveTranslatedArticleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFixById">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetFixById&lt;/i&gt;: Retrieve the specified Innova fix
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;FixId&lt;/td&gt;
+				&lt;td&gt;Guid&lt;/td&gt;
+				&lt;td&gt;id of the fix you want&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;InnovaFixItem&lt;/b&gt;: simple object the Innova fix&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetFixByIdSoapIn" />
+      <wsdl:output message="tns:GetFixByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBaseVehiclesForPath">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetBaseVehiclesForPath&lt;/i&gt;: Gets a list of base vehicles for a given chilton repair path
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;ChiltonRepairPath&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;&amp;gt; delimited Chilton repair path&lt;/td&gt;
+			&lt;/tr&gt;			
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;ChiltonBaseVehicle[]&lt;/b&gt;: list of base vehicles&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetBaseVehiclesForPathSoapIn" />
+      <wsdl:output message="tns:GetBaseVehiclesForPathSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MappedFixVehicleExists">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;MappedFixVehicleExists&lt;/i&gt;: Given a mapped fix and a vehicle id, tell the caller if content exists
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;MappedFix&lt;/td&gt;
+				&lt;td&gt;MappedFixItem&lt;/td&gt;
+				&lt;td&gt;The mapped fix you are looking up&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;VehicleIds&lt;/td&gt;
+				&lt;td&gt;array of Int32&lt;/td&gt;
+				&lt;td&gt;The vehicle id(s) you are looking up&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;true&lt;/b&gt;: exists&lt;br/&gt;
+				&lt;b&gt;false&lt;/b&gt;: does not exist&lt;br/&gt;
+			&lt;/small&gt;		
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:MappedFixVehicleExistsSoapIn" />
+      <wsdl:output message="tns:MappedFixVehicleExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FixVehicleExists">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;FixVehicleExists&lt;/i&gt;: Given a fix id and a list of vehicle ids, tell the caller if ANY content exists
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;FixId&lt;/td&gt;
+				&lt;td&gt;Guid&lt;/td&gt;
+				&lt;td&gt;The fix id you are looking up&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;VehicleIds&lt;/td&gt;
+				&lt;td&gt;array of Int32&lt;/td&gt;
+				&lt;td&gt;The vehicle id(s) you are looking up&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;true&lt;/b&gt;: exists&lt;br/&gt;
+				&lt;b&gt;false&lt;/b&gt;: does not exist&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:FixVehicleExistsSoapIn" />
+      <wsdl:output message="tns:FixVehicleExistsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="InnovaContentDeliveryHttpGet">
+    <wsdl:operation name="GetAllChiltonRepairs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllChiltonRepairs&lt;/i&gt;: Retrieve a list of all Chilton repair paths
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;ChiltonRepairItem[]&lt;/b&gt;: simple object array of all Chilton repair paths&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllChiltonRepairsHttpGetIn" />
+      <wsdl:output message="tns:GetAllChiltonRepairsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInnovaFixes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllInnovaFixes&lt;/i&gt;: Retrieve a list of all Innova fixes stored in this system
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;InnovaFixItem[]&lt;/b&gt;: simple object array of all Innova fixes&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllInnovaFixesHttpGetIn" />
+      <wsdl:output message="tns:GetAllInnovaFixesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMappedFixes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllMappedFixes&lt;/i&gt;: Retrieve a list of all mapped fixes in this system
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;MappedFixItem[]&lt;/b&gt;: simple object array of all mapped fixes&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllMappedFixesHttpGetIn" />
+      <wsdl:output message="tns:GetAllMappedFixesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMappedChiltonRepairs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllMappedChiltonRepairs&lt;/i&gt;: Retrieve a list of all Chilton repair items that are currently mapped to fixes
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;ChiltonRepairItem[]&lt;/b&gt;: simple object array of mapped Chilton repair items&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllMappedChiltonRepairsHttpGetIn" />
+      <wsdl:output message="tns:GetAllMappedChiltonRepairsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnmappedChiltonRepairs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllUnmappedChiltonRepairs&lt;/i&gt;: Retrieve a list of all Chilton repair items that are NOT currently mapped to fixes
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;ChiltonRepairItem[]&lt;/b&gt;: simple object array of unmapped Chilton repair items&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllUnmappedChiltonRepairsHttpGetIn" />
+      <wsdl:output message="tns:GetAllUnmappedChiltonRepairsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMappedFixesForRepair">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetMappedFixesForRepair&lt;/i&gt;: Retrieve a list of all mapped fixes, given an Chilton repair path fix
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;ChiltonRepairPath&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;&amp;gt; delimited Chilton repair path&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;MappedFixItem[]&lt;/b&gt;: simple object array of fixes mapped to the passed-in repair path&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMappedFixesForRepairHttpGetIn" />
+      <wsdl:output message="tns:GetMappedFixesForRepairHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrphanedFixes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetAllOrphanedFixes&lt;/i&gt;: Retrieve a list of all Innova fixes stored in this system that have been orphaned by a content update
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters: (none)&lt;/h6&gt;
+		 &lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;InnovaFixItem[]&lt;/b&gt;: simple object array of all orphaned Innova fixes&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetAllOrphanedFixesHttpGetIn" />
+      <wsdl:output message="tns:GetAllOrphanedFixesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchingRepairs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetMatchingRepairs&lt;/i&gt;: Retrieve a list of all Chilton repair items that contain the value in TextToMatch
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;TextToMatch&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;value to match&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;TopResultsAt&lt;/td&gt;
+				&lt;td&gt;int&lt;/td&gt;
+				&lt;td&gt;limit the matching results to the top N&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;ChiltonRepairItem[]&lt;/b&gt;: simple object array of matching Chilton repair items&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMatchingRepairsHttpGetIn" />
+      <wsdl:output message="tns:GetMatchingRepairsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTranslatedArticle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;RemoveTranslatedArticle&lt;/i&gt;: Remove a previously-stored translated version of a Chilton article
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;TranslatedArticleId&lt;/td&gt;
+				&lt;td&gt;int&lt;/td&gt;
+				&lt;td&gt;id of translated article to remove&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;UserName&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;name of the user&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;true&lt;/b&gt;: removed successfully&lt;br/&gt;
+				&lt;b&gt;false&lt;/b&gt;: failed to remove (this should not happen)&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:RemoveTranslatedArticleHttpGetIn" />
+      <wsdl:output message="tns:RemoveTranslatedArticleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBaseVehiclesForPath">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		 &lt;h5&gt;
+			&lt;i&gt;GetBaseVehiclesForPath&lt;/i&gt;: Gets a list of base vehicles for a given chilton repair path
+		 &lt;/h5&gt;
+		 &lt;h6&gt;Parameters:&lt;/h6&gt;
+		 &lt;table border='1'&gt;
+			&lt;tr&gt;
+				&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;
+				&lt;td&gt;&lt;b&gt;Description&lt;/b&gt;&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;ChiltonRepairPath&lt;/td&gt;
+				&lt;td&gt;string&lt;/td&gt;
+				&lt;td&gt;&amp;gt; delimited Chilton repair path&lt;/td&gt;
+			&lt;/tr&gt;			
+		&lt;/table&gt;
+		&lt;h6&gt;Return values:&lt;/h6&gt;
+			&lt;small&gt;
+				&lt;b&gt;ChiltonBaseVehicle[]&lt;/b&gt;: list of base vehicles&lt;br/&gt;
+			&lt;/small&gt;
+		&lt;/h6&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetBaseVehiclesForPathHttpGetIn" />
+      <wsdl:output message="tns:GetBaseVehiclesForPathHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InnovaContentDeliverySoap" type="tns:InnovaContentDeliverySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MapFix">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/MapFix" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MapFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:MapFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnmapFix">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/UnmapFix" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnmapFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnmapFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllChiltonRepairs">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetAllChiltonRepairs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInnovaFixes">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetAllInnovaFixes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllInnovaFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllInnovaFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMappedFixes">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetAllMappedFixes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllMappedFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllMappedFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMappedChiltonRepairs">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetAllMappedChiltonRepairs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllMappedChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllMappedChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnmappedChiltonRepairs">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetAllUnmappedChiltonRepairs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllUnmappedChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllUnmappedChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMappedFixesForFix">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetMappedFixesForFix" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMappedFixesForFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMappedFixesForFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMappedFixesForRepair">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetMappedFixesForRepair" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMappedFixesForRepairChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMappedFixesForRepairChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrphanedFixes">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetAllOrphanedFixes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllOrphanedFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllOrphanedFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchingRepairs">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetMatchingRepairs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMatchingRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMatchingRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoreTranslatedArticle">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/StoreTranslatedArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:StoreTranslatedArticleChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:StoreTranslatedArticleChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTranslatedArticle">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/RemoveTranslatedArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RemoveTranslatedArticleChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:RemoveTranslatedArticleChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFixById">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetFixById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetFixByIdChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetFixByIdChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaseVehiclesForPath">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/GetBaseVehiclesForPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MappedFixVehicleExists">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/MappedFixVehicleExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MappedFixVehicleExistsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:MappedFixVehicleExistsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FixVehicleExists">
+      <soap:operation soapAction="http://innova.content.chiltonsonline.com/FixVehicleExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FixVehicleExistsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:FixVehicleExistsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InnovaContentDeliverySoap12" type="tns:InnovaContentDeliverySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+    <wsdl:operation name="MapFix">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/MapFix" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:MapFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:MapFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnmapFix">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/UnmapFix" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:UnmapFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:UnmapFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllChiltonRepairs">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetAllChiltonRepairs" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInnovaFixes">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetAllInnovaFixes" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllInnovaFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllInnovaFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMappedFixes">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetAllMappedFixes" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllMappedFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllMappedFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMappedChiltonRepairs">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetAllMappedChiltonRepairs" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllMappedChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllMappedChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnmappedChiltonRepairs">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetAllUnmappedChiltonRepairs" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllUnmappedChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllUnmappedChiltonRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMappedFixesForFix">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetMappedFixesForFix" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetMappedFixesForFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetMappedFixesForFixChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMappedFixesForRepair">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetMappedFixesForRepair" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetMappedFixesForRepairChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetMappedFixesForRepairChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrphanedFixes">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetAllOrphanedFixes" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllOrphanedFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetAllOrphanedFixesChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchingRepairs">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetMatchingRepairs" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetMatchingRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetMatchingRepairsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoreTranslatedArticle">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/StoreTranslatedArticle" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:StoreTranslatedArticleChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:StoreTranslatedArticleChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTranslatedArticle">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/RemoveTranslatedArticle" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:RemoveTranslatedArticleChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:RemoveTranslatedArticleChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFixById">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetFixById" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetFixByIdChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:GetFixByIdChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaseVehiclesForPath">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/GetBaseVehiclesForPath" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MappedFixVehicleExists">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/MappedFixVehicleExists" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:MappedFixVehicleExistsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:MappedFixVehicleExistsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FixVehicleExists">
+      <soap12:operation soapAction="http://innova.content.chiltonsonline.com/FixVehicleExists" style="document" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      <wsdl:input>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:FixVehicleExistsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+        <soap12:header message="tns:FixVehicleExistsChiltonAuthorizationHeader" part="ChiltonAuthorizationHeader" use="literal" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InnovaContentDeliveryHttpGet" type="tns:InnovaContentDeliveryHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetAllChiltonRepairs">
+      <http:operation location="/GetAllChiltonRepairs" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInnovaFixes">
+      <http:operation location="/GetAllInnovaFixes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMappedFixes">
+      <http:operation location="/GetAllMappedFixes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMappedChiltonRepairs">
+      <http:operation location="/GetAllMappedChiltonRepairs" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUnmappedChiltonRepairs">
+      <http:operation location="/GetAllUnmappedChiltonRepairs" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMappedFixesForRepair">
+      <http:operation location="/GetMappedFixesForRepair" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrphanedFixes">
+      <http:operation location="/GetAllOrphanedFixes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchingRepairs">
+      <http:operation location="/GetMatchingRepairs" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTranslatedArticle">
+      <http:operation location="/RemoveTranslatedArticle" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaseVehiclesForPath">
+      <http:operation location="/GetBaseVehiclesForPath" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InnovaContentDelivery">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;h4&gt;Web service supporting Chilton repair content delivery to Innova.&lt;/h4&gt;</wsdl:documentation>
+    <wsdl:port name="InnovaContentDeliverySoap" binding="tns:InnovaContentDeliverySoap">
+      <soap:address location="http://s-content.chiltonsonline.com/Services/InnovaContentDelivery.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InnovaContentDeliverySoap12" binding="tns:InnovaContentDeliverySoap12">
+      <soap12:address location="http://s-content.chiltonsonline.com/Services/InnovaContentDelivery.asmx" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" />
+    </wsdl:port>
+    <wsdl:port name="InnovaContentDeliveryHttpGet" binding="tns:InnovaContentDeliveryHttpGet">
+      <http:address location="http://s-content.chiltonsonline.com/Services/InnovaContentDelivery.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

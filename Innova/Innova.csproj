@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DC54B161-D33F-49A0-BF1D-EC189D69B600}</ProjectGuid>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Innova</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Innova</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <WebReference_EnableProperties>true</WebReference_EnableProperties>
+    <WebReference_EnableSQLTypes>false</WebReference_EnableSQLTypes>
+    <WebReference_EnableLegacyEventingModel>true</WebReference_EnableLegacyEventingModel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DocumentationFile>bin\Release\Innova.XML</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="AESEncrypter, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Resources\References\Innova Utilities\AESEncrypter.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK, Version=2.3.52.0, Culture=neutral, PublicKeyToken=9f476d3089b52be3, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.2.3.52.0\lib\net45\AWSSDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Innova.Avalon.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8afb4a2900dc02ae, processorArchitecture=MSIL">
+      <HintPath>..\Resources\References\Innova Utilities\Innova.Avalon.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova.Core, Version=1.6.6.8, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\References\Innova Utilities\Innova.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova.Utilities.Shared">
+      <HintPath>..\Resources\References\Innova Utilities\Innova.Utilities.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Entities">
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Enums, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Enums.dll</HintPath>
+    </Reference>
+    <Reference Include="Innova2.VehicleDataLib.Parsing, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\References\Innova Utilities\Innova2.VehicleDataLib.Parsing.dll</HintPath>
+    </Reference>
+    <Reference Include="Metafuse3, Version=12.1.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\References\Metafuse3.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Resources\References\Innova Utilities\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\References\Innova Utilities\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Device" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DiagnosticReports\DiagnosticReportErrorCodeDefinition.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportFixFeedbackToolCollection.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportFixFeedbackTool.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportFixFeedbackPart.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportFixFeedbackPartCollection.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportPartial.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportResultFixToolCollection.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportResultFixTool.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportResultFixPartPartOem.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportResultFixPartPartOemCollection.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportsExtraData\DiagnosticReportExtraData.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportsExtraData\DiagnosticReportResultExtraData.cs" />
+    <Compile Include="DiagnosticReports\ProRSFix.cs" />
+    <Compile Include="DiagnosticReports\ProRSFixCollection.cs" />
+    <Compile Include="DiagnosticReports\ProRSFixStatus.cs" />
+    <Compile Include="DtcCodes\AbsDtcByType.cs" />
+    <Compile Include="DtcCodes\DTCRepairStatus.cs" />
+    <Compile Include="DtcCodes\DTCRepairStatusV1.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Fixes\FixToolCollection.cs" />
+    <Compile Include="Fixes\FixTool.cs" />
+    <Compile Include="Fixes\FixSymptom.cs" />
+    <Compile Include="Fixes\RepairTip.cs" />
+    <Compile Include="Fixes\RepairTipCollection.cs" />
+    <Compile Include="HighlightDtcsList\HighlightDtcList.cs" />
+    <Compile Include="InnovaDLLParsers\InnovaPayloadDecoder.cs" />
+    <Compile Include="InnovaDLLParsers\InnovaPayloadModels\PayloadInfoMasterV02Model.cs" />
+    <Compile Include="InnovaDLLParsers\InnovaRawPayloadParser.cs" />
+    <Compile Include="InnovaDLLParsers\OFMBrakePadCheckManager.cs" />
+    <Compile Include="ORBlackBoxLogs\ORBlackBoxLog.cs" />
+    <Compile Include="ORBlackBoxLogs\ORBlackBoxWebServiceTransaction.cs" />
+    <Compile Include="Parts\PartOEM.cs" />
+    <Compile Include="Parts\PartOEMCollection.cs" />
+    <Compile Include="DtcCodes\DtcCodeLaymanTermCollection.cs" />
+    <Compile Include="Fixes\FixDifficultyRating.cs" />
+    <Compile Include="Fixes\FixDTC.cs" />
+    <Compile Include="Fixes\FixPolkVehicleDiscrepancy.cs" />
+    <Compile Include="Fixes\FixPolkVehicleDiscrepancyCollection.cs" />
+    <Compile Include="ObdFixes\ObdFixPaymentType.cs" />
+    <Compile Include="RetailerTools\Tool.cs" />
+    <Compile Include="RetailerTools\ToolCollection.cs" />
+    <Compile Include="RetailerTools\ToolName.cs" />
+    <Compile Include="RetailerTools\ToolNameCollection.cs" />
+    <Compile Include="ScheduleMaintenance\ScheduleMaintenanceType.cs" />
+    <Compile Include="Symptoms\Symptom.cs" />
+    <Compile Include="Symptoms\SymptomCollection.cs" />
+    <Compile Include="Symptoms\SymptomDiagnosticReportItem.cs" />
+    <Compile Include="Symptoms\SymptomDiagnosticReportItemCollection.cs" />
+    <Compile Include="Symptoms\SymptomEngineType.cs" />
+    <Compile Include="Symptoms\SymptomFragment.cs" />
+    <Compile Include="Symptoms\SymptomFragmentCollection.cs" />
+    <Compile Include="Symptoms\SymptomFragmentType.cs" />
+    <Compile Include="Symptoms\SymptomMake.cs" />
+    <Compile Include="Symptoms\SymptomModel.cs" />
+    <Compile Include="Symptoms\SymptomYear.cs" />
+    <Compile Include="RetailerTools\ToolCategory.cs" />
+    <Compile Include="RetailerTools\ToolCategoryCollection.cs" />
+    <Compile Include="Common\Tools.cs" />
+    <Compile Include="Vehicles\PolkVehicle.cs" />
+    <Compile Include="Vehicles\PolkVehicleCollection.cs" />
+    <Compile Include="Vehicles\PolkVehicleYMME.cs" />
+    <Compile Include="Vehicles\PolkVehicleYMMECollection.cs" />
+    <Compile Include="Vehicles\PolkVinDecoder.cs" />
+    <Compile Include="Web\HttpHelper.cs" />
+    <Compile Include="Web\WebServiceValidationFailure.cs" />
+    <Compile Include="Articles\Article.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Articles\ArticleCategory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Articles\ArticleCategoryCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Articles\ArticleCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Articles\ArticleType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\CarMDFormatting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Markets\Country.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Markets\CountryCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Currency.cs" />
+    <Compile Include="Devices\Device.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Devices\DeviceCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportErrorCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportErrorCodeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportErrorCodeSystemType.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportErrorCodeType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportFixFeedback.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportFixFeedbackCollection.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportFixFeedbackStatus.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportFixStatus.cs" />
+    <Compile Include="DiagnosticReports\DiagnosticReportResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultErrorCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultErrorCodeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultErrorCodeDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultErrorCodeDefinitionCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultErrorCodeDefinitionDisplay.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultErrorCodeDefinitionDisplayCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultErrorCodeDefinitionDisplayVehicle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultErrorCodeDefinitionDisplayVehicleCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultFix.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultFixCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultFixPart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultFixPartCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportResultType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\DiagnosticReportType.cs" />
+    <Compile Include="DiagnosticReports\Feedback\DiagnosticReportFeedback.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\Feedback\DiagnosticReportFeedbackCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\Feedback\DiagnosticReportFeedbackLabor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\Feedback\DiagnosticReportFeedbackLaborCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\Feedback\DiagnosticReportFeedbackPart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\Feedback\DiagnosticReportFeedbackPartCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\Feedback\RepairedByType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\PossibleCause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiagnosticReports\PossibleCauseCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DtcCodes\DtcCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DtcCodes\DtcCodeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DtcCodes\DtcCodeLaymanTerm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DtcCodes\DtcCodeView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DtcCodes\DtcCodeViewCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DtcCodes\DtcCodeViewDetail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DtcCodes\DtcCodeViewDetailCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DtcCodes\DtcMasterCodeList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DtcCodes\DtcMasterCodeListCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fixes\FixRating.cs" />
+    <Compile Include="Fixes\Fix.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fixes\FixCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fixes\FixName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fixes\FixNameCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fixes\FixType.cs" />
+    <Compile Include="Fixes\FixPart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fixes\FixPartCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\InnovaBusinessObjectBase.cs" />
+    <Compile Include="Common\Language.cs" />
+    <Compile Include="Markets\CurrencyExchangeRate.cs" />
+    <Compile Include="Markets\CurrencyExchangeRateCollection.cs" />
+    <Compile Include="Markets\Market.cs" />
+    <Compile Include="ObdFixes\ObdFix.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObdFixes\ObdFixCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObdFixes\ObdFixPaymentSchedule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObdFixes\ObdFixPaymentScheduleCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObdFixes\ObdFixStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parts\Part.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parts\PartCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parts\PartName.cs" />
+    <Compile Include="Parts\PartNameCollection.cs" />
+    <Compile Include="Common\RuntimeInfo.cs" />
+    <Compile Include="ScheduleMaintenance\ScheduleMaintenancePlan.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScheduleMaintenance\ScheduleMaintenancePlanCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScheduleMaintenance\ScheduleMaintenancePlanDetail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScheduleMaintenance\ScheduleMaintenancePlanDetailCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScheduleMaintenance\ScheduleMaintenanceService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScheduleMaintenance\ScheduleMaintenanceServiceCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Encryption\Encrypt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Encryption\RSACrypt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Markets\StateLaborRate.cs" />
+    <Compile Include="Markets\StateLaborRateCollection.cs" />
+    <Compile Include="ThirdPartyTools\AmazonS3.cs" />
+    <Compile Include="Users\AdminUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Users\AdminUserCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Users\AdminUserType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Users\ExternalSystem.cs" />
+    <Compile Include="Users\ExternalSystemCollection.cs" />
+    <Compile Include="Users\User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Users\UserAccountStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Users\UserCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Users\UserStatusChange.cs" />
+    <Compile Include="Users\UserStatusChangeCollection.cs" />
+    <Compile Include="Users\UserType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\TsbCategory.cs" />
+    <Compile Include="Vehicles\DlcLocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\DlcLocationCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\Recall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\RecallCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\Tsb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\TsbPurchased.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\TsbPurchasedCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\TsbType.cs" />
+    <Compile Include="Vehicles\Vehicle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\VehicleCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\VehicleType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\VehicleTypeCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\VehicleTypeCodeAssignment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\VehicleTypeCodeAssignmentCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\VehicleTypeCodeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\VehicleTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\VehicleTypeStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vehicles\VehicleWarranty.cs" />
+    <Compile Include="Vehicles\VehicleWarrantyCollection.cs" />
+    <Compile Include="Vehicles\VehicleWarrantyDetail.cs" />
+    <Compile Include="Vehicles\VehicleWarrantyDetailCollection.cs" />
+    <Compile Include="Vehicles\VehicleWarrantyType.cs" />
+    <Compile Include="Web References\ChiltonRepairContent\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="HighlightDtcsList\HighlightDTCList.INI">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Web References\ChiltonRepairContent\ChiltonBaseVehicle1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ChiltonRepairContent\ChiltonRepairItem1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ChiltonRepairContent\InnovaContentDelivery.disco" />
+    <None Include="Web References\ChiltonRepairContent\InnovaContentDelivery.wsdl" />
+    <None Include="Web References\ChiltonRepairContent\InnovaFixItem1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ChiltonRepairContent\MappedFixItem1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ChiltonRepairContent\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <WebReferenceUrl Include="http://s-content.chiltonsonline.com/Services/InnovaContentDelivery.asmx">
+      <RelPath>Web References\ChiltonRepairContent\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
