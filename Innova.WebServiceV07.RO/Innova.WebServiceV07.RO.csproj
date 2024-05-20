@@ -301,7 +301,8 @@
     <Compile Include="Common\Enums\MethodServiceV06Enum.cs" />
     <Compile Include="Common\Enums\MethodServiceV07Enum.cs" />
     <Compile Include="Common\Enums\ServiceTypeEnum.cs" />
-    <Compile Include="DataModels\AutoZoneBlackboxLoggingModels\AutoZoneBlackboxLogWebServiceTransactionModel.cs" />
+    <Compile Include="DataModels\AutoZoneBlackboxLoggingModels\AutoZoneBlackboxDiagnosticReportLogModel.cs" />
+    <Compile Include="DataModels\AutoZoneBlackboxLoggingModels\AutoZoneBlackboxTransactionLogModel.cs" />
     <Compile Include="DataModels\OreillyBlackBoxLogModels\ORBlackBoxWebServiceTransactionModel.cs" />
     <Compile Include="DataModels\RabbitMQModels\RabbitMQRequestModel.cs" />
     <Compile Include="DataModels\ServiceV6Models\LogDiagnosticReport\LogDiagnosticReportModel.cs" />
@@ -328,7 +329,6 @@
     <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Helpers\PayloadHelper.cs" />
     <Compile Include="Services\AutoZoneBlackboxLoggingService.cs" />
-    <Compile Include="Services\AutoZoneDiagnosticReportService.cs" />
     <Compile Include="Services\DiagnosticReportService.cs" />
     <Compile Include="Services\PopulateDataForDiagReportInfo.cs" />
     <Compile Include="Services\VINDecodingService.cs" />
@@ -337,7 +337,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <Compile Include="WebMethods\DiagnosticReportLoggingV2WebMethods\AutoZone\AutoZoneDiagnosticReportLoggingV2Processor.cs" />
     <Compile Include="WebMethods\DiagnosticReportLoggingV2WebMethods\Oreilly\OreillyDiagnosticReportLoggingV2Partial.cs">
       <SubType>Component</SubType>
     </Compile>

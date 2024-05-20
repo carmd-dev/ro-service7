@@ -2,7 +2,7 @@
 
 namespace Innova.WebServiceV07.RO.DataModels.AutoZoneBlackboxLoggingModels
 {
-    public class AutoZoneBlackboxLogWebServiceTransactionModel
+    public class AutoZoneBlackboxTransactionLogModel
     {
         public WebServiceKey webServiceKey { get; set; }
         public string wsLanguageString { get; set; }

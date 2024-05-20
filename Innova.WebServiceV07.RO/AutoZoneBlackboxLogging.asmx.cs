@@ -1,15 +1,9 @@
-﻿using Innova.WebServiceV07.RO.Common.Enums;
-using Innova.WebServiceV07.RO.DataModels.AutoZoneBlackboxLoggingModels;
-using Innova.WebServiceV07.RO.DataModels.RabbitMQModels;
-using Innova.WebServiceV07.RO.DataModels.ServiceV6Models.LogDiagnosticReport;
+﻿using Innova.WebServiceV07.RO.DataModels.AutoZoneBlackboxLoggingModels;
 using Innova.WebServiceV07.RO.DataModels.ServiceV7Models.WebServiceKey;
 using Innova.WebServiceV07.RO.DataObjects;
-using Innova.WebServiceV07.RO.Helpers;
 using Innova.WebServiceV07.RO.Services;
-using Innova.WebServiceV07.RO.WebMethods.DiagnosticReportLoggingV2WebMethods.AutoZone;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 using System;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Services;
 
@@ -23,8 +17,8 @@ namespace Innova.WebServiceV07.RO
     [System.ComponentModel.ToolboxItem(false)]
     public class AutoZoneBlackboxLogging : WebServiceBase
     {
-        [WebMethod(Description = "Creates a diagnostic report using the provided VIN and payload V2.")]
-        public DiagReportInfo CreateDiagnosticReportWithMileage(
+        [WebMethod(Description = "AutoZoneBlackboxLogging - Push payload to INNOVA")]
+        public void PushPayloadToInnova(
             WebServiceKey key,
             string externalSystemUserIdString,
             string vin,
@@ -33,59 +27,21 @@ namespace Innova.WebServiceV07.RO
             int vehicleMileage,
             string createdDateTimeUTCString)
         {
-            DiagReportInfo drInfo = new DiagReportInfo();
-            WebServiceSessionStatus errors = new WebServiceSessionStatus();
-            drInfo.WebServiceSessionStatus = errors;
-
             var logId = Guid.NewGuid().ToString();
 
             try
             {
                 if (!this.ValidateKey(key))
                 {
-                    Logger.Write($"AutoZoneBlackboxLogging => CreateDiagnosticReportWithMileage => Invalid key => key: {key.Key}");
-                    errors.AddValidationFailure("00001", "Invalid key");
-
-                    return drInfo;
+                    Logger.Write($"AutoZoneBlackboxLogging => PushPayloadToInnova => Invalid key => key: {key.Key}");
+                    return;
                 }
 
-                if (!IsUserIdValid(externalSystemUserIdString))
+                Logger.Write($"AutoZoneBlackboxLogging => PushPayloadToInnova => logId: {logId} => data received => reportId: {reportID}, vin: {vin}, languageString: {key.LanguageString}");
+
+                var model = new AutoZoneBlackboxDiagnosticReportLogModel
                 {
-                    Logger.Write($"AutoZoneBlackboxLogging => CreateDiagnosticReportWithMileage => ExternalSystemUserIdString format is not valid => externalSystemUserIdString: {externalSystemUserIdString}");
-                    errors.AddValidationFailure("40004", "ExternalSystemUserIdString format is not valid");
-
-                    return drInfo;
-                }
-
-                Logger.Write($"AutoZoneBlackboxLogging => CreateDiagnosticReportWithMileage => logId: {logId} => reportId: {reportID}, vin: {vin}");
-
-                if (Global.ForwardDataToIDMService)
-                {
-                    AutoZoneDiagnosticReportLoggingV2Processor.PushPayloadToIDMService(vin, vehicleMileage.ToString(), reportID, rawToolPayload, key.LanguageString, logId);
-                }
-
-                #region Gets the payload bytes' length and set serviceName
-
-                var serviceName = ServiceTypeEnum.DiagnosticReportLoggingServiceV6.ToString();
-
-                // Gets the payload bytes' length
-                var arr = Convert.FromBase64String(rawToolPayload);
-
-                if (arr.Length >= 10597) // Posts the payload to DiagnosticReportLoggingV2
-                {
-                    serviceName = ServiceTypeEnum.DiagnosticReportLoggingServiceV7.ToString();
-                }
-
-                #endregion
-
-                #region Service ReadOnly - Send request to RabbitMQ
-
-                var rabbitMQRequestModel = new RabbitMQRequestModel<LogDiagnosticReportModel>
-                {
-                    ServiceName = serviceName,
-                    MethodName = MethodDiagnosticReportLoggingServiceEnum.LogDiagnosticReportWithMileage.ToString(),
-                    ExternalSystemName = GetExternalSystemName(),
-                    WebServiceKey = new WebServiceKeyModel
+                    webServiceKey = new WebServiceKeyModel
                     {
                         Key = key.Key,
                         LanguageString = key.LanguageString,
@@ -93,54 +49,40 @@ namespace Innova.WebServiceV07.RO
                         Currency = key.Currency,
                         MarketString = key.MarketString
                     },
-                    PayloadInfo = PayloadHelper.BuildPayloadInfo
-                    (
-                        serviceName,
-                        MethodDiagnosticReportLoggingServiceEnum.LogDiagnosticReportWithMileage.ToString(),
-                        reportID,
-                        externalSystemUserIdString,
-                        vin,
-                        vehicleMileage.ToString(),
-                        rawToolPayload
-                    ),
-                    Data = new LogDiagnosticReportModel
-                    {
-                        externalSystemUserIdString = externalSystemUserIdString,
-                        vin = vin,
-                        rawToolPayload = rawToolPayload,
-                        reportID = reportID,
-                        vehicleMileage = vehicleMileage,
-                        createdDateTimeUTCString = createdDateTimeUTCString
-                    },
+                    externalSystemUserIdString = externalSystemUserIdString,
+                    vin = vin,
+                    rawToolPayload = rawToolPayload,
+                    reportId = reportID,
+                    vehicleMileage = vehicleMileage,
+                    createdDateTimeUTCString = createdDateTimeUTCString
                 };
 
-                AutoZoneDiagnosticReportService.PushDiagnosticReportToQueue(rabbitMQRequestModel);
-
-                #endregion Service ReadOnly - Send request to RabbitMQ
-
-                #region Save to local file by day
-
-                Task.Run(() =>
+                if (Global.ForwardDataToIDMService)
                 {
-                    SaveToLocalFolder(rabbitMQRequestModel, Global.AutoZoneReportFromBBFolderPath);
-                });
+                    AutoZoneBlackboxLoggingService.PushPayloadToIDMService(model, logId);
+                }
 
-                #endregion Save to local file by day
+                AutoZoneBlackboxLoggingService.PushPayloadToQueue(model, logId);
+
+                AutoZoneBlackboxLoggingService.SavePayloadToLocalFolder(model);
             }
             catch (Exception ex)
             {
-                Logger.Write($"AutoZoneBlackboxLogging => CreateDiagnosticReportWithMileage => logId: {logId} => Exception: {ex}");
-                errors.AddValidationFailure("90000", $"Exception: {ex}");
+                Logger.Write($"AutoZoneBlackboxLogging => PushPayloadToInnova => logId: {logId} => Exception: {ex}");
             }
-
-            return drInfo;
         }
 
         [WebMethod(Description = "AutoZoneBlackboxLogging - Push transaction log to INNOVA")]
-        public void PushTransactionLogToInnova(AutoZoneBlackboxLogWebServiceTransactionModel model)
+        public void PushTransactionLogToInnova(AutoZoneBlackboxTransactionLogModel model)
         {
             try
             {
+                if (!this.ValidateKey(model.webServiceKey))
+                {
+                    Logger.Write($"AutoZoneBlackboxLogging => PushTransactionLogToInnova => Invalid key => key: {model.webServiceKey}");
+                    return;
+                }
+
                 if (string.IsNullOrEmpty(model.ipAddress))
                 {
                     model.ipAddress = HttpContext.Current.Request.UserHostAddress;

@@ -332,14 +332,6 @@ namespace Innova.WebServiceV07.RO
             }
         }
 
-        public static string RabbitMQ_QueueName_AutoZoneDiagnosticReportLogging
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["RabbitMQ_QueueName_AutoZoneDiagnosticReportLogging"];
-            }
-        }
-
         public static string OreillyReportFromBBFolderPath
         {
             get
@@ -377,6 +369,14 @@ namespace Innova.WebServiceV07.RO
             get
             {
                 return ConfigurationManager.AppSettings["RabbitMQ_QueueName_AutoZoneBlackboxTransactionLog"];
+            }
+        }
+
+        public static string RabbitMQ_QueueName_AutoZoneBlackboxDiagnosticReportLog
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["RabbitMQ_QueueName_AutoZoneBlackboxDiagnosticReportLog"];
             }
         }
 
