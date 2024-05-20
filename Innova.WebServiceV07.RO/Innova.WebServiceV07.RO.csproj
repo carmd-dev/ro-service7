@@ -293,10 +293,15 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AutoZoneBlackboxLogging.asmx.cs">
+      <DependentUpon>AutoZoneBlackboxLogging.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Common\Enums\MethodDiagnosticReportLoggingServiceEnum.cs" />
     <Compile Include="Common\Enums\MethodServiceV06Enum.cs" />
     <Compile Include="Common\Enums\MethodServiceV07Enum.cs" />
     <Compile Include="Common\Enums\ServiceTypeEnum.cs" />
+    <Compile Include="DataModels\AutoZoneBlackboxLoggingModels\AutoZoneBlackboxLogWebServiceTransactionModel.cs" />
     <Compile Include="DataModels\OreillyBlackBoxLogModels\ORBlackBoxWebServiceTransactionModel.cs" />
     <Compile Include="DataModels\RabbitMQModels\RabbitMQRequestModel.cs" />
     <Compile Include="DataModels\ServiceV6Models\LogDiagnosticReport\LogDiagnosticReportModel.cs" />
@@ -322,6 +327,7 @@
     </Compile>
     <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Helpers\PayloadHelper.cs" />
+    <Compile Include="Services\AutoZoneBlackboxLoggingService.cs" />
     <Compile Include="Services\DiagnosticReportService.cs" />
     <Compile Include="Services\PopulateDataForDiagReportInfo.cs" />
     <Compile Include="Services\VINDecodingService.cs" />
@@ -408,6 +414,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Helpers\XmlHelper.cs" />
+    <Content Include="AutoZoneBlackboxLogging.asmx" />
     <Content Include="DiagnosticReportLoggingV2.asmx" />
     <Content Include="ServiceV7.asmx" />
     <Content Include="Global.asax">
@@ -471,6 +478,7 @@
       <CachedSettingsPropName>Innova_WebServiceV07_RO_ServiceV7Client_ServiceV7</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

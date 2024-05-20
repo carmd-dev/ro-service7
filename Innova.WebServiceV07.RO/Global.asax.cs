@@ -356,6 +356,15 @@ namespace Innova.WebServiceV07.RO
             }
         }
 
+        public static string RabbitMQ_QueueName_AutoZoneBlackboxTransactionLog
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["RabbitMQ_QueueName_AutoZoneBlackboxTransactionLog"];
+            }
+        }
+
+
         /// <summary>
         /// The default contructor for the <see cref="Global"/> class.
         /// </summary>
