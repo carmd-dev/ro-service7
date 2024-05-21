@@ -1,4 +1,5 @@
 ﻿using Innova.WebServiceV07.RO.DataObjects;
+using System;
 
 namespace Innova.WebServiceV07.RO.DataModels.AutoZoneBlackboxLoggingModels
 {
@@ -23,5 +24,6 @@ namespace Innova.WebServiceV07.RO.DataModels.AutoZoneBlackboxLoggingModels
         public string model { get; set; }
         public string enginetype { get; set; }
         public string errorMessage { get; set; }
+        public DateTime reportDateTimeRequested { get; set; }
     }
 }
