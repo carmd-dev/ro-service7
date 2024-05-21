@@ -85,7 +85,7 @@ namespace Innova.WebServiceV07.RO.Services
         private static void DoPushPayloadToQueue(AutoZoneBlackboxDiagnosticReportLogModel model, string logId)
         {
             var rabbitMQHandler = new RabbitMQHandler();
-            (bool isOk, Exception rabbitMQHandlerEx) = rabbitMQHandler.SendRequest(model, Global.RabbitMQ_QueueName_AutoZoneBlackboxTransactionLog);
+            (bool isOk, Exception rabbitMQHandlerEx) = rabbitMQHandler.SendRequest(model, Global.RabbitMQ_QueueName_AutoZoneBlackboxDiagnosticReportLog);
 
             if (isOk)
             {
