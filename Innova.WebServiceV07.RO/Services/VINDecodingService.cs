@@ -1,18 +1,19 @@
 ﻿using Innova.Vehicles;
+using Metafuse3.BusinessObjects;
 using System;
 
 namespace Innova.WebServiceV07.RO.Services
 {
     public class VINDecodingService
     {
-        public static (PolkVehicleYMME, string) DecodeVIN(string vin, bool validateVin)
+        public static (PolkVehicleYMME, string) DecodeVIN(Registry registry, string vin, bool validateVin)
         {
             PolkVehicleYMME polkVehicleYMME = null;
             string errorMessage = string.Empty;
 
             try
             {
-                PolkVinDecoder polkVinDecoder = new PolkVinDecoder(Global.Registry);
+                PolkVinDecoder polkVinDecoder = new PolkVinDecoder(registry);
 
                 if (polkVinDecoder.IsVinAValidMaskPattern(vin))
                 {

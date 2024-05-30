@@ -5,6 +5,7 @@ using Innova.Users;
 using Innova.Vehicles;
 using Innova.WebServiceV07.RO.DataObjects;
 using Innova.WebServiceV07.RO.Helpers;
+using Metafuse3.BusinessObjects;
 using System;
 
 namespace Innova.WebServiceV07.RO.Services
@@ -13,6 +14,8 @@ namespace Innova.WebServiceV07.RO.Services
     {
         public static DiagReportInfo GetDiagnosticReport
             (
+                Registry registry,
+                Registry registryReadOnly,
                 WebServiceKey key = null,
                 string methodInvoked = "",
                 string externalSystemReportId = "",
@@ -45,7 +48,7 @@ namespace Innova.WebServiceV07.RO.Services
             /*****************************************************************************
             * User processing
             * ***************************************************************************/
-            var user = GetOrCreateUserFromSystemUserIdGuidString(externalSystemUserIdGuidString, key.ExternalSystemId, errors, createUserIfNotFound: true);
+            var user = GetOrCreateUserFromSystemUserIdGuidString(registry, externalSystemUserIdGuidString, key.ExternalSystemId, errors, createUserIfNotFound: true);
 
             if (errors.ValidationFailures.Length > 0 || user == null)
             {
@@ -83,7 +86,7 @@ namespace Innova.WebServiceV07.RO.Services
             PolkVehicleYMME polkVehicleYMME = null;
             string errorMessageDecodeVIN = string.Empty;
 
-            (polkVehicleYMME, errorMessageDecodeVIN) = VINDecodingService.DecodeVIN(vin, validateVin);
+            (polkVehicleYMME, errorMessageDecodeVIN) = VINDecodingService.DecodeVIN(registry, vin, validateVin);
 
             if (!string.IsNullOrEmpty(errorMessageDecodeVIN))
             {
@@ -101,7 +104,7 @@ namespace Innova.WebServiceV07.RO.Services
 
             if (vehicle == null)
             {
-                vehicle = (Vehicle)Global.Registry.CreateInstance(typeof(Vehicle));
+                vehicle = (Vehicle)registry.CreateInstance(typeof(Vehicle));
                 vehicle.User = user;
             }
             vehicle.Vin = vin;
@@ -127,14 +130,14 @@ namespace Innova.WebServiceV07.RO.Services
             {
                 #region used for RabbitMQ call
 
-                diagnosticReport = (DiagnosticReport)Global.Registry.CreateInstance(typeof(DiagnosticReport), new Guid(newDiagnosticReportId));
+                diagnosticReport = (DiagnosticReport)registry.CreateInstance(typeof(DiagnosticReport), new Guid(newDiagnosticReportId));
                 diagnosticReport.IsObjectCreated = true;
 
                 #endregion used for RabbitMQ call
             }
             else
             {
-                diagnosticReport = (DiagnosticReport)Global.Registry.CreateInstance(typeof(DiagnosticReport));
+                diagnosticReport = (DiagnosticReport)registry.CreateInstance(typeof(DiagnosticReport));
             }
 
             diagnosticReport.ExternalSystemReportId = externalSystemReportId;
@@ -171,12 +174,12 @@ namespace Innova.WebServiceV07.RO.Services
 
             if (toolId.HasValue)
             {
-                device = Device.GetDeviceByChipIdAndUserIdAndActive(Global.Registry, toolId.Value, user.Id);
+                device = Device.GetDeviceByChipIdAndUserIdAndActive(registry, toolId.Value, user.Id);
             }
 
             if (device == null)
             {
-                device = (Device)Global.Registry.CreateInstance(typeof(Device));
+                device = (Device)registry.CreateInstance(typeof(Device));
                 if (toolId.HasValue)
                 {
                     device.ChipId = toolId.Value;
@@ -242,6 +245,8 @@ namespace Innova.WebServiceV07.RO.Services
 			 * *******************************************************************************************************/
             SetDiagReportInfoFromSDKObject
                 (
+                    registry,
+                    registryReadOnly,
                     dr,
                     diagnosticReport,
                     determineNoFixStatusAutomatically: true,
@@ -256,6 +261,8 @@ namespace Innova.WebServiceV07.RO.Services
 
         public static void SetDiagReportInfoFromSDKObject
             (
+                Registry registry,
+                Registry registryReadOnly,
                 DiagReportInfo dr,
                 DiagnosticReport diagnosticReport,
                 bool determineNoFixStatusAutomatically,
@@ -290,19 +297,19 @@ namespace Innova.WebServiceV07.RO.Services
             dr.Fixes = PopulateDataForDiagReportInfo.PopulateFixInfo(diagnosticReport, dr.Monitors);
 
             //setup the fix status here....
-            dr.FixStatusInfo = PopulateDataForDiagReportInfo.PopulateFixStatusInfo(diagnosticReport, determineNoFixStatusAutomatically, dr.Monitors, Global.Registry.GetEnumDescription(DiagnosticReportFixStatus.FixNotNeeded));
+            dr.FixStatusInfo = PopulateDataForDiagReportInfo.PopulateFixStatusInfo(diagnosticReport, determineNoFixStatusAutomatically, dr.Monitors, registry.GetEnumDescription(DiagnosticReportFixStatus.FixNotNeeded));
 
             //set recalls
-            dr.Recalls = PopulateDataForDiagReportInfo.PopulateRecallInfo(diagnosticReport, includeRecallsForVehicle);
+            dr.Recalls = PopulateDataForDiagReportInfo.PopulateRecallInfo(registry, diagnosticReport, includeRecallsForVehicle);
 
             //set tsb categories
-            dr.TSBCategories = PopulateDataForDiagReportInfo.PopulateTSBCategoryInfo(diagnosticReport, includeTSBCountForVehicle);
+            dr.TSBCategories = PopulateDataForDiagReportInfo.PopulateTSBCategoryInfo(registryReadOnly, diagnosticReport, includeTSBCountForVehicle);
 
             //set tsb count all
-            dr.TSBCountAll = PopulateDataForDiagReportInfo.PopulateTSBCountAll(diagnosticReport, includeTSBCountForVehicle);
+            dr.TSBCountAll = PopulateDataForDiagReportInfo.PopulateTSBCountAll(registryReadOnly, diagnosticReport, includeTSBCountForVehicle);
 
             //set vehicle warranty
-            dr.VehicleWarrantyDetails = PopulateDataForDiagReportInfo.PopulateVehicleWarrantyDetailInfo(diagnosticReport, includeWarrantyInfo);
+            dr.VehicleWarrantyDetails = PopulateDataForDiagReportInfo.PopulateVehicleWarrantyDetailInfo(registry, diagnosticReport, includeWarrantyInfo);
 
             if (dr.VehicleWarrantyDetails.Length > 0)
             {
@@ -318,7 +325,7 @@ namespace Innova.WebServiceV07.RO.Services
             bool hasScheduledMaintenance = false;
             int? scheduledMaintenanceNextMileage = null;
 
-            (scheduleMaintenanceServices, hasScheduledMaintenance, scheduledMaintenanceNextMileage) = PopulateDataForDiagReportInfo.PopulateScheduleMaintenanceServiceInfo(diagnosticReport, includeNextScheduledMaintenance);
+            (scheduleMaintenanceServices, hasScheduledMaintenance, scheduledMaintenanceNextMileage) = PopulateDataForDiagReportInfo.PopulateScheduleMaintenanceServiceInfo(registry, diagnosticReport, includeNextScheduledMaintenance);
             dr.ScheduleMaintenanceServices = scheduleMaintenanceServices;
             dr.HasScheduledMaintenance = hasScheduledMaintenance;
             dr.ScheduledMaintenanceNextMileage = scheduledMaintenanceNextMileage;
@@ -328,13 +335,13 @@ namespace Innova.WebServiceV07.RO.Services
             bool hasUnScheduledMaintenance = false;
             int? unScheduledMaintenanceNextMileage = null;
 
-            (unScheduleMaintenanceServices, hasUnScheduledMaintenance, unScheduledMaintenanceNextMileage) = PopulateDataForDiagReportInfo.PopulateUnScheduleMaintenanceServiceInfo(diagnosticReport, includeNextScheduledMaintenance);
+            (unScheduleMaintenanceServices, hasUnScheduledMaintenance, unScheduledMaintenanceNextMileage) = PopulateDataForDiagReportInfo.PopulateUnScheduleMaintenanceServiceInfo(registry, diagnosticReport, includeNextScheduledMaintenance);
             dr.UnScheduledMaintenanceServices = unScheduleMaintenanceServices;
             dr.HasUnScheduledMaintenance = hasUnScheduledMaintenance;
             dr.UnScheduledMaintenanceNextMileage = unScheduledMaintenanceNextMileage;
         }
 
-        private static User GetOrCreateUserFromSystemUserIdGuidString(string externalSystemUserIdGuidString, Guid? externalSystemId, WebServiceSessionStatus errors, bool createUserIfNotFound)
+        private static User GetOrCreateUserFromSystemUserIdGuidString(Registry registry, string externalSystemUserIdGuidString, Guid? externalSystemId, WebServiceSessionStatus errors, bool createUserIfNotFound)
         {
             Guid userId = Guid.Empty;
 
@@ -352,7 +359,7 @@ namespace Innova.WebServiceV07.RO.Services
             }
 
             //first let's make sure the user is in the database, if not we'll need to add them
-            User user = (User)Global.Registry.CreateInstance(typeof(User), userId);
+            User user = (User)registry.CreateInstance(typeof(User), userId);
 
             try
             {
@@ -367,20 +374,20 @@ namespace Innova.WebServiceV07.RO.Services
                         try
                         {
                             //user not found, let's create the user then update the ID to match...this is done the first time...
-                            user = (User)Global.Registry.CreateInstance(typeof(User));
+                            user = (User)registry.CreateInstance(typeof(User));
                             user.UserType = UserType.ExternalSystemUser;
-                            user.ExternalSystem = (ExternalSystem)Global.Registry.CreateInstance(typeof(ExternalSystem), externalSystemId.Value);
+                            user.ExternalSystem = (ExternalSystem)registry.CreateInstance(typeof(ExternalSystem), externalSystemId.Value);
 
                             user.Save();
 
                             //the newly created user needs to have the ID changed...
-                            using (Metafuse3.Data.SqlClient.SqlDataReaderWrapper updateUserIdDataReader = new Metafuse3.Data.SqlClient.SqlDataReaderWrapper(Global.Registry.ConnectionStringDefault))
+                            using (Metafuse3.Data.SqlClient.SqlDataReaderWrapper updateUserIdDataReader = new Metafuse3.Data.SqlClient.SqlDataReaderWrapper(registry.ConnectionStringDefault))
                             {
                                 updateUserIdDataReader.ExecuteNonQuery("UPDATE [User] Set UserId = '" + Guid.Parse(externalSystemUserIdGuidString).ToString() + "' WHERE UserId = '" + user.Id.ToString() + "'");
                             }
                             //set the local reference to null
                             user = null;
-                            user = (User)Global.Registry.CreateInstance(typeof(User), userId);
+                            user = (User)registry.CreateInstance(typeof(User), userId);
                         }
                         catch (Exception ex)
                         {
