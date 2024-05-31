@@ -2,6 +2,7 @@
 using Innova.ScheduleMaintenance;
 using Innova.Vehicles;
 using Innova.WebServiceV07.RO.DataObjects;
+using Metafuse3.BusinessObjects;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -295,12 +296,12 @@ namespace Innova.WebServiceV07.RO.Services
         /// <param name="diagnosticReport"></param>
         /// <param name="includeRecallsForVehicle"></param>
         /// <returns></returns>
-        public static RecallInfo[] PopulateRecallInfo(DiagnosticReport diagnosticReport, string includeRecallsForVehicle)
+        public static RecallInfo[] PopulateRecallInfo(Registry registry, DiagnosticReport diagnosticReport, string includeRecallsForVehicle)
         {
             var recallInfos = new RecallInfo[0];
             if (!string.IsNullOrEmpty(includeRecallsForVehicle) && includeRecallsForVehicle.Trim().ToLower() == "true")
             {
-                var recalls = Recall.Search(Global.Registry, diagnosticReport.Vehicle.Year, diagnosticReport.Vehicle.Make, diagnosticReport.Vehicle.Model, diagnosticReport.Vehicle.TrimLevel);
+                var recalls = Recall.Search(registry, diagnosticReport.Vehicle.Year, diagnosticReport.Vehicle.Make, diagnosticReport.Vehicle.Model, diagnosticReport.Vehicle.TrimLevel);
 
                 recallInfos = new RecallInfo[recalls.Count];
                 for (int i = 0; i < recalls.Count; i++)
@@ -318,13 +319,13 @@ namespace Innova.WebServiceV07.RO.Services
         /// <param name="diagnosticReport"></param>
         /// <param name="includeTSBCountForVehicle"></param>
         /// <returns></returns>
-        public static TSBCategoryInfo[] PopulateTSBCategoryInfo(DiagnosticReport diagnosticReport, string includeTSBCountForVehicle)
+        public static TSBCategoryInfo[] PopulateTSBCategoryInfo(Registry registryReadOnly, DiagnosticReport diagnosticReport, string includeTSBCountForVehicle)
         {
             var tsbCategories = new TSBCategoryInfo[0];
             if (!string.IsNullOrEmpty(includeTSBCountForVehicle) && includeTSBCountForVehicle.Trim().ToLower() == "true")
             {
                 //switched to get this from the Vehicle VIN....
-                tsbCategories = GetTSBCountByVehicleByCategory(diagnosticReport.Vehicle.Vin);
+                tsbCategories = GetTSBCountByVehicleByCategory(registryReadOnly, diagnosticReport.Vehicle.Vin);
             }
 
             return tsbCategories;
@@ -336,13 +337,13 @@ namespace Innova.WebServiceV07.RO.Services
         /// <param name="diagnosticReport"></param>
         /// <param name="includeTSBCountForVehicle"></param>
         /// <returns></returns>
-        public static int? PopulateTSBCountAll(DiagnosticReport diagnosticReport, string includeTSBCountForVehicle)
+        public static int? PopulateTSBCountAll(Registry registryReadOnly, DiagnosticReport diagnosticReport, string includeTSBCountForVehicle)
         {
             int? tsbCountAll = null;
             if (!string.IsNullOrEmpty(includeTSBCountForVehicle) && includeTSBCountForVehicle.Trim().ToLower() == "true")
             {
                 //switched to get this from the Vehicle VIN....
-                tsbCountAll = GetTSBCountByVehicle(diagnosticReport.Vehicle.Vin);
+                tsbCountAll = GetTSBCountByVehicle(registryReadOnly, diagnosticReport.Vehicle.Vin);
             }
 
             return tsbCountAll;
@@ -354,13 +355,13 @@ namespace Innova.WebServiceV07.RO.Services
         /// <param name="diagnosticReport"></param>
         /// <param name="includeWarrantyInfo"></param>
         /// <returns></returns>
-        public static VehicleWarrantyDetailInfo[] PopulateVehicleWarrantyDetailInfo(DiagnosticReport diagnosticReport, string includeWarrantyInfo)
+        public static VehicleWarrantyDetailInfo[] PopulateVehicleWarrantyDetailInfo(Registry registry, DiagnosticReport diagnosticReport, string includeWarrantyInfo)
         {
             var vehicleWarrantyDetails = new VehicleWarrantyDetailInfo[0];
 
             if (!string.IsNullOrEmpty(includeWarrantyInfo) && includeWarrantyInfo.ToLower() == "true")
             {
-                VehicleWarranty warranty = VehicleWarranty.GetCurrentlyValidWarranty(Global.Registry, diagnosticReport.Vehicle, Global.AverageMilesDrivenPerDay);
+                VehicleWarranty warranty = VehicleWarranty.GetCurrentlyValidWarranty(registry, diagnosticReport.Vehicle, Global.AverageMilesDrivenPerDay);
 
                 if (warranty != null && warranty.VehicleWarrantyDetails.Count > 0)
                 {
@@ -382,7 +383,7 @@ namespace Innova.WebServiceV07.RO.Services
         /// <param name="diagnosticReport"></param>
         /// <param name="includeNextScheduledMaintenance"></param>
         /// <returns></returns>
-        public static (ScheduleMaintenanceServiceInfo[], bool, int?) PopulateScheduleMaintenanceServiceInfo(DiagnosticReport diagnosticReport, string includeNextScheduledMaintenance)
+        public static (ScheduleMaintenanceServiceInfo[], bool, int?) PopulateScheduleMaintenanceServiceInfo(Registry registry, DiagnosticReport diagnosticReport, string includeNextScheduledMaintenance)
         {
             ScheduleMaintenanceServiceInfo[] scheduleMaintenanceServices = null;
             bool hasScheduledMaintenance = false;
@@ -390,7 +391,7 @@ namespace Innova.WebServiceV07.RO.Services
 
             if (!string.IsNullOrEmpty(includeNextScheduledMaintenance) && includeNextScheduledMaintenance.ToLower() == "true" && diagnosticReport.Vehicle.Mileage.IsNull == false)
             {
-                diagnosticReport.Vehicle.ScheduleMaintenancePlan = ScheduleMaintenancePlan.LookupScheduleMaintenancePlan(Global.Registry, diagnosticReport.Vehicle, ScheduleMaintenanceType.ScheduledMaintenance);
+                diagnosticReport.Vehicle.ScheduleMaintenancePlan = ScheduleMaintenancePlan.LookupScheduleMaintenancePlan(registry, diagnosticReport.Vehicle, ScheduleMaintenanceType.ScheduledMaintenance);
                 diagnosticReport.Vehicle.Save();
 
                 //if we have a scheduled maintenance plan for the vehicle..
@@ -429,7 +430,7 @@ namespace Innova.WebServiceV07.RO.Services
         /// <param name="diagnosticReport"></param>
         /// <param name="includeNextScheduledMaintenance"></param>
         /// <returns></returns>
-        public static (ScheduleMaintenanceServiceInfo[], bool, int?) PopulateUnScheduleMaintenanceServiceInfo(DiagnosticReport diagnosticReport, string includeNextScheduledMaintenance)
+        public static (ScheduleMaintenanceServiceInfo[], bool, int?) PopulateUnScheduleMaintenanceServiceInfo(Registry registry, DiagnosticReport diagnosticReport, string includeNextScheduledMaintenance)
         {
             ScheduleMaintenanceServiceInfo[] unScheduledMaintenanceServices = null;
             bool hasUnScheduledMaintenance = false;
@@ -441,7 +442,7 @@ namespace Innova.WebServiceV07.RO.Services
 				 * NOW REPEAT SERVICE FOR UNSCHEDULED MAINTENANCE
 				 ****************************************************/
 
-                ScheduleMaintenancePlan unscheduledMaintenancePlan = ScheduleMaintenancePlan.LookupScheduleMaintenancePlan(Global.Registry, diagnosticReport.Vehicle, ScheduleMaintenanceType.UnscheduledMaintenance);
+                ScheduleMaintenancePlan unscheduledMaintenancePlan = ScheduleMaintenancePlan.LookupScheduleMaintenancePlan(registry, diagnosticReport.Vehicle, ScheduleMaintenanceType.UnscheduledMaintenance);
 
                 //we don't currently have this to save on the vehicle.... I think the reason we save it on the vehicle is in case we do updates for the user via email
                 //if we have a scheduled maintenance plan for the vehicle..
@@ -500,11 +501,11 @@ namespace Innova.WebServiceV07.RO.Services
             return fixList.ToArray();
         }
 
-        private static TSBCategoryInfo[] GetTSBCountByVehicleByCategory(string vin)
+        private static TSBCategoryInfo[] GetTSBCountByVehicleByCategory(Registry registryReadOnly, string vin)
         {
             string tsbConnectionString = ConfigurationManager.AppSettings["ConnectionString_ChiltonBulletins"];
 
-            VehicleInfo vehicleInfo = GetVehicleInfo(vin);
+            VehicleInfo vehicleInfo = GetVehicleInfo(registryReadOnly, vin);
 
             if (vehicleInfo == null || (vehicleInfo.ValidationFailures != null && vehicleInfo.ValidationFailures.Length > 0))
             {
@@ -523,7 +524,7 @@ namespace Innova.WebServiceV07.RO.Services
             return tsbCategoryInfos;
         }
 
-        private static VehicleInfo GetVehicleInfo(string vin)
+        private static VehicleInfo GetVehicleInfo(Registry registryReadOnly, string vin)
         {
             //create vehicle info
             VehicleInfo v = new VehicleInfo();
@@ -537,7 +538,7 @@ namespace Innova.WebServiceV07.RO.Services
                 {
                     vin = vin.Trim();
 
-                    PolkVinDecoder pvd = new PolkVinDecoder(Global.RegistryReadOnly);
+                    PolkVinDecoder pvd = new PolkVinDecoder(registryReadOnly);
 
                     //Updated on 2018-02-5 4:15 PM by INNOVA Dev Team
                     PolkVehicleYMME pvYmme;
@@ -579,11 +580,11 @@ namespace Innova.WebServiceV07.RO.Services
             return v;
         }
 
-        private static int? GetTSBCountByVehicle(string vin)
+        private static int? GetTSBCountByVehicle(Registry registryReadOnly, string vin)
         {
             string tsbConnectionString = ConfigurationManager.AppSettings["ConnectionString_ChiltonBulletins"];
 
-            VehicleInfo vehicleInfo = GetVehicleInfo(vin);
+            VehicleInfo vehicleInfo = GetVehicleInfo(registryReadOnly, vin);
 
             if (vehicleInfo == null || (vehicleInfo.ValidationFailures != null && vehicleInfo.ValidationFailures.Length > 0))
             {

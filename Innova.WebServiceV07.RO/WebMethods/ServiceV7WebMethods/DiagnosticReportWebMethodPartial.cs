@@ -72,6 +72,8 @@ namespace Innova.WebServiceV07.RO
 
                 reportInfo = DiagnosticReportService.GetDiagnosticReport
                     (
+                        registry: this.Registry,
+                        registryReadOnly: this.RegistryReadOnly,
                         key: key,
                         methodInvoked: "CreateDiagnosticReportForVDK",
                         externalSystemReportId: string.Empty,
@@ -249,7 +251,7 @@ namespace Innova.WebServiceV07.RO
                 foreach (var fixInfo in mostlikelyFixes)
                 {
                     int.TryParse(drInfo.Vehicle.Year, out var yearInt);
-                    var rtips = RepairTip.Search(Global.Registry, fixInfo.FixNameId, string.Empty, null,
+                    var rtips = RepairTip.Search(this.Registry, fixInfo.FixNameId, string.Empty, null,
                         yearInt, drInfo.Vehicle.Make, drInfo.Vehicle.Model, drInfo.Vehicle.EngineType,
                         string.Empty, SortDirection.Ascending, 1, 1, true, false, fixInfo.ErrorCode);
                     if (rtips != null && rtips.Count > 0)
@@ -333,6 +335,8 @@ namespace Innova.WebServiceV07.RO
 
                 reportInfo = DiagnosticReportService.GetDiagnosticReport
                     (
+                        registry: this.Registry,
+                        registryReadOnly: this.RegistryReadOnly,
                         key: key,
                         methodInvoked: "CreateDiagnosticReportForVDK",
                         externalSystemReportId: string.Empty,

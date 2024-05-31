@@ -1,14 +1,8 @@
+using Metafuse3.Data.SqlClient;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Linq;
 using System.Web;
-using System.Web.SessionState;
-
-using Metafuse3.Data.SqlClient;
-using Metafuse3.BusinessObjects;
 
 namespace Innova.WebServiceV07.RO
 {
@@ -25,37 +19,9 @@ namespace Innova.WebServiceV07.RO
         public static readonly Guid FLEET_TOOL_ID = new Guid("{ED8EB8DA-DFEE-4C42-941C-4F1E997A755E}");
         public static readonly Guid AUTOZONE_TOOL_ID = new Guid("{CE2D229A-E2FE-474E-9C91-6BA5DDC68477}");
 
-        private static Registry registry = null;
-        private static Registry registryReadOnly = null;
-
         /*
          *****************************************************************
          */
-
-        public static Registry Registry
-        {
-            get
-            {
-                if (registry == null)
-                {
-                    registry = new Registry(ConfigurationManager.AppSettings["ConnectionString"], ConfigurationManager.AppSettings["SmtpServer"]);
-                }
-                return registry;
-            }
-        }
-
-        public static Registry RegistryReadOnly
-        {
-            get
-            {
-                if (registryReadOnly == null)
-                {
-                    registryReadOnly = new Registry(ConfigurationManager.AppSettings["ConnectionStringReadOnly"], ConfigurationManager.AppSettings["SmtpServer"]);
-                }
-                return registryReadOnly;
-            }
-        }
-
 
         /// <summary>
         /// Gets the <see cref="string"/> base URL for downloadable content resources.

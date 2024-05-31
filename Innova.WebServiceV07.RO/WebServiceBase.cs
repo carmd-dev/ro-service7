@@ -3,8 +3,10 @@ using Innova.WebServiceV07.RO.DataModels.RabbitMQModels;
 using Innova.WebServiceV07.RO.DataObjects;
 using Innova.WebServiceV07.RO.Helpers;
 using Innova.WebServiceV07.RO.RabbitMQPublishers;
+using Metafuse3.BusinessObjects;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 using System;
+using System.Configuration;
 using System.Linq;
 using System.Web.Services.Protocols;
 using System.Xml;
@@ -16,6 +18,42 @@ namespace Innova.WebServiceV07.RO
     /// </summary>
     public class WebServiceBase : System.Web.Services.WebService
     {
+        private Registry registry;
+        private Registry registryReadOnly;
+
+        /// <summary>
+        /// Default constructor for the web services base class
+        /// </summary>
+        public WebServiceBase()
+        {
+            //create a registry for use on web services
+            this.registry = new Registry(ConfigurationManager.AppSettings["ConnectionString"], ConfigurationManager.AppSettings["SmtpServer"]);
+            this.registryReadOnly = new Registry(ConfigurationManager.AppSettings["ConnectionStringReadOnly"], ConfigurationManager.AppSettings["SmtpServer"]);
+        }
+
+        /// <summary>
+        /// Gets the <see cref="Registry"/> currently being used by the web service
+        /// </summary>
+        protected Registry Registry
+        {
+            get
+            {
+                return registry;
+            }
+        }
+
+        //RO_
+        /// <summary>
+        /// Gets the ReadOnly <see cref="Registry"/> currently being used by the web service
+        /// </summary>
+        protected Registry RegistryReadOnly
+        {
+            get
+            {
+                return registryReadOnly;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the <see cref="WebServiceKey"/> currently in use (set when Validate key) is invoked.
         /// </summary>
@@ -36,7 +74,7 @@ namespace Innova.WebServiceV07.RO
                 if (Global.EnableTransactionLogging)
                 {
                     //go ahead and loGetOBDFixMasterTechsg the transaction of the access now....
-                    using (Metafuse3.Data.SqlClient.SqlDataReaderWrapper dr = new Metafuse3.Data.SqlClient.SqlDataReaderWrapper(Global.Registry.ConnectionStringDefault))
+                    using (Metafuse3.Data.SqlClient.SqlDataReaderWrapper dr = new Metafuse3.Data.SqlClient.SqlDataReaderWrapper(this.Registry.ConnectionStringDefault))
                     {
                         dr.ProcedureName = "ExternalSystemTransaction_Create";
                         dr.AddGuid("ExternalSystemId", this.WebServiceKey.ExternalSystemId.Value);
@@ -82,7 +120,7 @@ namespace Innova.WebServiceV07.RO
             else
             {
                 //first time in, let's add it so we can see if the site is valid
-                ExternalSystem externalSystem = ExternalSystem.GetActiveExternalSystemFromKey(Global.Registry, this.WebServiceKey.Key);
+                ExternalSystem externalSystem = ExternalSystem.GetActiveExternalSystemFromKey(this.Registry, this.WebServiceKey.Key);
 
                 Guid? id = null;
 
@@ -111,7 +149,7 @@ namespace Innova.WebServiceV07.RO
             if (this.WebServiceKey != null && this.WebServiceKey.ExternalSystemId.HasValue)
             {
                 //create an instance of the web service key just to get a runtime info
-                ExternalSystem ex = (ExternalSystem)Global.Registry.CreateInstance(typeof(ExternalSystem), this.WebServiceKey.ExternalSystemId.Value);
+                ExternalSystem ex = (ExternalSystem)this.Registry.CreateInstance(typeof(ExternalSystem), this.WebServiceKey.ExternalSystemId.Value);
 
                 //set the labor rate from the key
                 ex.RuntimeInfo.SetCurrentStateLaborRate(this.WebServiceKey.Region);
@@ -282,7 +320,7 @@ namespace Innova.WebServiceV07.RO
         protected string GetExternalSystemName()
         {
             //Get ExternalSystem By WS Key
-            return ExternalSystem.GetActiveExternalSystemFromKey(Global.RegistryReadOnly, this.WebServiceKey.Key).Name;
+            return ExternalSystem.GetActiveExternalSystemFromKey(this.RegistryReadOnly, this.WebServiceKey.Key).Name;
         }
 
         #endregion RabbitMQ

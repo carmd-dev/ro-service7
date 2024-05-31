@@ -87,7 +87,7 @@ namespace Innova.WebServiceV07.RO
                         VehicleInfo v = new VehicleInfo();
 
                         //now we have to decode the vin (we'll need it for vehicle info)
-                        PolkVinDecoder vinDecoder = new PolkVinDecoder(Global.Registry);
+                        PolkVinDecoder vinDecoder = new PolkVinDecoder(this.Registry);
                         string errorMessage = "";
                         try
                         {
@@ -247,7 +247,7 @@ namespace Innova.WebServiceV07.RO
             {
                 //
                 DiagnosticReportErrorCodeDefinition ed = new DiagnosticReportErrorCodeDefinition();
-                ed.Registry = Global.Registry;
+                ed.Registry = this.Registry;
 
                 var defs = new List<DiagnosticReportResultErrorCodeDefinition>();
                 if (toolInfo.VehicleInfo != null)
