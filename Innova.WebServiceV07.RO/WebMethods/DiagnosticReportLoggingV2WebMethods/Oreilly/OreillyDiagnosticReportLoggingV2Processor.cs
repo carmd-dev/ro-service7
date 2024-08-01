@@ -20,6 +20,12 @@ namespace Innova.WebServiceV07.RO.DiagnosticReportLoggingV2WebMethods.Oreilly
 
         private static void DoPushPayloadToIDMService(string vin, string mileage, string reportId, string payload, string language, string logId)
         {
+            System.Net.ServicePointManager.SecurityProtocol =
+                System.Net.SecurityProtocolType.Tls12
+                | System.Net.SecurityProtocolType.Tls12
+                | System.Net.SecurityProtocolType.Tls11
+                | System.Net.SecurityProtocolType.Tls;
+
             string errorMessage = string.Empty;
 
             var source = "O'Reilly";
